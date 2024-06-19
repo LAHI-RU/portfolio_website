@@ -10,7 +10,7 @@
 }
 
 :root {
-  --bg-color: #fff;
+  --bg-color: #efefef;
   --snd-bg-color: #d5fdf9;
   --text-color: #000;
   --main-color: #007f73;
@@ -269,4 +269,72 @@ span {
 .services-box p {
   font-size: 1.6rem;
   margin: 1rem 0 3rem;
+}
+
+/* Testimonial Section Code */
+
+.testimonial {
+  background: var(--snd-bg-color);
+}
+
+.testimonial-box {
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.testimonial .heading {
+  margin-bottom: 5rem;
+}
+
+.testimonial-box img {
+  width: 15rem;
+  border-radius: 50%;
+  border: 3px solid var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.testimonial-item {
+  min-height: 450px;
+  min-width: 450px;
+  background: var(--bg-color);
+  border: 0.3rem solid var(--bg-color);
+  border-radius: 2rem;
+  margin: 0 2rem;
+  padding: 20px 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  color: var(--text-color);
+  transition: 0.3s ease;
+}
+
+.testimonial-item:hover {
+  border-color: var(--main-color);
+  transform: scale(1.02);
+}
+
+.testimonial-item h2 {
+  font-size: 3rem;
+}
+
+.testimonial-item p {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+#star {
+  color: gold;
+  font-size: 2rem;
 }
