@@ -304,7 +304,7 @@ span {
 
 .testimonial-item {
   min-height: 450px;
-  min-width: 450px;
+  max-width: 450px;
   background: var(--bg-color);
   border: 0.3rem solid var(--bg-color);
   border-radius: 2rem;
@@ -337,4 +337,19 @@ span {
 #star {
   color: gold;
   font-size: 2rem;
+}
+
+/* Contact Section Code */
+
+.contact {
+  background: var(--bg-color);
+}
+
+.contact h2 {
+  margin-bottom: 3rem;
+  color: var(--main-color);
+}
+
+.contact form {
+  max-width: 80rem;
 }
