@@ -7,19 +7,20 @@ Welcome to my personal portfolio website! This project is designed to showcase m
 
 ## Special Features
  - 🌑 Dark Mode
-          User-Friendly Dark Theme: Enjoy a visually appealing dark mode that reduces eye strain and enhances readability, with a creative and balanced color scheme.
+      - User-Friendly Dark Theme: Enjoy a visually appealing dark mode that reduces eye strain and enhances readability, with a creative and balanced color scheme.
    
  - 🚀 Fully Responsive Design
-         Cross-Device Compatibility: The website adapts seamlessly to various screen sizes and devices, ensuring a consistent and enjoyable user experience on desktops, tablets, and smartphones.
+      - Cross-Device Compatibility: The website adapts seamlessly to various screen sizes and devices, ensuring a consistent and enjoyable user experience on desktops, tablets, and smartphones.
+        
  - 🖼️ Dynamic Content Sections
-        About Me: Detailed information about my background, education, and interests.
-        Projects: A comprehensive showcase of my key projects with descriptions, images, and GitHub links for each project.
-        Education: A dedicated section highlighting my academic achievements and qualifications.
-        Contact: An interactive contact form for easy communication.
+      - About Me: Detailed information about my background, education, and interests.
+      - Projects: A comprehensive showcase of my key projects with descriptions, images, and GitHub links for each project.
+      - Education: A dedicated section highlighting my academic achievements and qualifications.
+      - Contact: An interactive contact form for easy communication.
    
  - 🎨 Modern Aesthetics
-        Interactive Elements: Smooth animations and transitions for a dynamic browsing experience.
-        Customizable Design: Easily modify the design elements to suit your preferences and branding.
+       -  Interactive Elements: Smooth animations and transitions for a dynamic browsing experience.
+       -  Customizable Design: Easily modify the design elements to suit your preferences and branding.
    
  - 🌐 Netlify Hosting
         Reliable and Fast: Hosted on Netlify for optimal performance, speed, and reliability, ensuring your portfolio is always accessible.
