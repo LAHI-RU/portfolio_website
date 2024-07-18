@@ -19,20 +19,20 @@ Welcome to my personal portfolio website! This project is designed to showcase m
       - Contact: An interactive contact form for easy communication.
    
  - 🎨 Modern Aesthetics
-       -  Interactive Elements: Smooth animations and transitions for a dynamic browsing experience.
-       -  Customizable Design: Easily modify the design elements to suit your preferences and branding.
+      - Interactive Elements: Smooth animations and transitions for a dynamic browsing experience.
+      - Customizable Design: Easily modify the design elements to suit your preferences and branding.
    
  - 🌐 Netlify Hosting
-        Reliable and Fast: Hosted on Netlify for optimal performance, speed, and reliability, ensuring your portfolio is always accessible.
+      - Reliable and Fast: Hosted on Netlify for optimal performance, speed, and reliability, ensuring your portfolio is always accessible.
    
  - 📊 Performance Optimization
-        Optimized Assets: Minimized CSS, JavaScript, and image assets for faster load times and improved performance.
-        SEO Friendly: Structured content and meta tags to enhance search engine visibility.
+      - Optimized Assets: Minimized CSS, JavaScript, and image assets for faster load times and improved performance.
+      - SEO Friendly: Structured content and meta tags to enhance search engine visibility.
    
  - 🔒 Secure and Scalable
-        Secure Implementation: Best practices in web security to protect your data and user interactions.
-        Scalable Architecture: Designed to accommodate future enhancements and additional features.
+      - Secure Implementation: Best practices in web security to protect your data and user interactions.
+      - Scalable Architecture: Designed to accommodate future enhancements and additional features.
    
  - 🛠️ Built with Modern Technologies
-        HTML5, CSS3, JavaScript: Leveraging the latest web technologies to deliver a robust and efficient portfolio website.
-        Interactive Components: Use of libraries like Boxicons for icons and creative UI elements.
+      - HTML5, CSS3, JavaScript: Leveraging the latest web technologies to deliver a robust and efficient portfolio website.
+      - Interactive Components: Use of libraries like Boxicons for icons and creative UI elements.
