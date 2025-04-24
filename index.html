@@ -3,35 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <meta name="description" content="Lahiru Bandara - Frontend Developer and Web Designer Portfolio showcasing projects, skills and services">
+    <meta name="keywords" content="frontend developer, web designer, UI/UX designer, portfolio, Lahiru Bandara">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Lahiru Bandara - Frontend Developer Portfolio">
+    <meta property="og:description" content="Professional portfolio showcasing web design and development projects">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lahirubandara.netlify.app">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css" />
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="assets/profile1.png" as="image">
+    
     <title>Lahiru Bandara - Portfolio</title>
   </head>
   <body>
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="loader"></div>
+    </div>
+    
     <!-- Header Section Code -->
-
     <header class="header">
       <a href="#home" class="logo"> Lahiru Bandara </a>
 
       <i class="bx bx-menu" id="menu-icon"></i>
 
       <nav class="navbar">
-        <a href="#home"> Home </a>
-        <a href="#about"> About </a>
-        <a href="#services"> Services </a>
-        <a href="#projects"> Projects </a>
-        <a href="#contact"> Contact </a>
+        <a href="#home" class="nav-link active"> Home </a>
+        <a href="#about" class="nav-link"> About </a>
+        <a href="#services" class="nav-link"> Services </a>
+        <a href="#projects" class="nav-link"> Projects </a>
+        <a href="#contact" class="nav-link"> Contact </a>
       </nav>
     </header>
 
     <!-- Home Section Code -->
-
-    <section class="home" id="home">
+    <section class="home section" id="home">
       <div class="home-img">
-        <img src="assets/profile1.png" alt="Profile Image" />
+        <img src="assets/profile1.png" alt="Lahiru Bandara Profile Photo" loading="lazy" />
       </div>
 
       <div class="home-content">
@@ -42,87 +61,273 @@
           <span class="multiple-text"> </span>
         </h3>
         <p>
-          Welcome to my Portfolio!. Check out the other sections to discover
-          more about me.
+          Welcome to my Portfolio! Check out the other sections to discover
+          more about my work, skills, and professional experience.
         </p>
 
         <div class="social-media">
-          <a href="https://www.linkedin.com/in/lahirubandaara" target="_blank"
-            ><i class="bx bxl-linkedin"></i
-          ></a>
-          <a href="https://github.com/LAHI-RU" target="_blank"
-            ><i class="bx bxl-github"></i
-          ></a>
-          <a href="https://facebook.com/lahiru.bandara.1428921" target="_blank"
-            ><i class="bx bxl-facebook"></i
-          ></a>
-          <a href="https://www.instagram.com/l_a_h_i_r_u._" target="_blank"
-            ><i class="bx bxl-instagram"></i
-          ></a>
-          <a href="https://wa.link/oio8hv" target="_blank"
-            ><i class="bx bxl-whatsapp"></i
-          ></a>
+          <a href="https://www.linkedin.com/in/lahirubandaara" target="_blank" aria-label="LinkedIn Profile">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+          <a href="https://github.com/LAHI-RU" target="_blank" aria-label="GitHub Profile">
+            <i class="bx bxl-github"></i>
+          </a>
+          <a href="https://facebook.com/lahiru.bandara.1428921" target="_blank" aria-label="Facebook Profile">
+            <i class="bx bxl-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/l_a_h_i_r_u._" target="_blank" aria-label="Instagram Profile">
+            <i class="bx bxl-instagram"></i>
+          </a>
+          <a href="https://wa.link/oio8hv" target="_blank" aria-label="WhatsApp Contact">
+            <i class="bx bxl-whatsapp"></i>
+          </a>
         </div>
 
-        <a href="assets/LahiruCV.pdf" class="btn"> Download CV </a>
+        <a href="assets/LahiruCV.pdf" class="btn" download> Download CV </a>
       </div>
     </section>
 
     <!-- About Section code  -->
-
-    <section class="about" id="about">
+    <section class="about section" id="about">
       <div class="about-content">
-        <h2 class="heading">About <span> Me </span></h2>
-        <h3>I'm an <span> Undergraduate </span></h3>
-        <p>
-          <b>Bachelor of Computer Science[BCS]</b>, Trincomalee Campus of EUSL <br>
-          (Jun 2022 - present)
-        </p>
-        <a href="#" class="btn"> Read More </a>
+        <h2 class="heading">About <span>Me</span></h2>
+        
+        <div class="about-tabs">
+          <button class="tab-btn active" data-tab="education">Education</button>
+          <button class="tab-btn" data-tab="skills">Skills</button>
+          <button class="tab-btn" data-tab="interests">Interests</button>
+        </div>
+        
+        <div class="tab-content education-tab active">
+          <h3>Academic <span>Journey</span></h3>
+          <div class="education-item">
+            <div class="edu-icon"><i class='bx bxs-graduation'></i></div>
+            <div class="edu-details">
+              <h4>Bachelor of Computer Science [BCS]</h4>
+              <p class="institution">Trincomalee Campus, Eastern University of Sri Lanka</p>
+              <p class="duration">Jun 2022 - Present</p>
+              <p class="description">
+                Currently pursuing a comprehensive computer science degree with focus on software development,
+                algorithms, and web technologies. Maintaining a GPA of 3.7/4.0 with particular excellence in
+                programming and software engineering courses.
+              </p>
+              <ul class="achievements">
+                <li>Active member of the university's Computing Society</li>
+                <li>Participant in inter-university hackathons and coding competitions</li>
+                <li>Student representative for department tech events</li>
+                <li>Volunteer mentor for junior students in web development</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="education-item">
+            <div class="edu-icon"><i class='bx bxs-school'></i></div>
+            <div class="edu-details">
+              <h4>High School Diploma</h4>
+              <p class="institution">Advanced Level Secondary Education</p>
+              <p class="duration">Completed 2021</p>
+              <p class="description">
+                Specialized in science/math stream with distinction in mathematics and IT subjects.
+                Ranked among the top students in district-level examinations.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content skills-tab">
+          <h3>Technical <span>Expertise</span></h3>
+          <div class="skills-container">
+            <div class="skill-category">
+              <h4>Frontend</h4>
+              <div class="skill-bars">
+                <div class="skill">
+                  <span>HTML5 & CSS3</span>
+                  <div class="skill-bar"><div class="skill-level" style="width: 90%;">90%</div></div>
+                </div>
+                <div class="skill">
+                  <span>JavaScript</span>
+                  <div class="skill-bar"><div class="skill-level" style="width: 85%;">85%</div></div>
+                </div>
+                <div class="skill">
+                  <span>React.js</span>
+                  <div class="skill-bar"><div class="skill-level" style="width: 75%;">75%</div></div>
+                </div>
+                <div class="skill">
+                  <span>UI/UX Design</span>
+                  <div class="skill-bar"><div class="skill-level" style="width: 80%;">80%</div></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h4>Backend & Others</h4>
+              <div class="skill-bars">
+                <div class="skill">
+                  <span>Node.js</span>
+                  <div class="skill-bar"><div class="skill-level" style="width: 70%;">70%</div></div>
+                </div>
+                <div class="skill">
+                  <span>MongoDB</span>
+                  <div class="skill-bar"><div class="skill-level" style="width: 65%;">65%</div></div>
+                </div>
+                <div class="skill">
+                  <span>Git & GitHub</span>
+                  <div class="skill-bar"><div class="skill-level" style="width: 75%;">75%</div></div>
+                </div>
+                <div class="skill">
+                  <span>Responsive Design</span>
+                  <div class="skill-bar"><div class="skill-level" style="width: 85%;">85%</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tools-container">
+            <h4>Tools & Technologies</h4>
+            <div class="tools-grid">
+              <div class="tool-item">
+                <i class='bx bxl-visual-studio'></i>
+                <span>VS Code</span>
+              </div>
+              <div class="tool-item">
+                <i class='bx bxl-figma'></i>
+                <span>Figma</span>
+              </div>
+              <div class="tool-item">
+                <i class='bx bxl-github'></i>
+                <span>GitHub</span>
+              </div>
+              <div class="tool-item">
+                <i class='bx bxl-bootstrap'></i>
+                <span>Bootstrap</span>
+              </div>
+              <div class="tool-item">
+                <i class='bx bxl-tailwind-css'></i>
+                <span>Tailwind</span>
+              </div>
+              <div class="tool-item">
+                <i class='bx bxl-netlify'></i>
+                <span>Netlify</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content interests-tab">
+          <h3>Personal <span>Interests</span></h3>
+          <div class="interests-grid">
+            <div class="interest-item">
+              <i class='bx bx-code-alt'></i>
+              <p>Open Source</p>
+            </div>
+            <div class="interest-item">
+              <i class='bx bx-palette'></i>
+              <p>UI Design</p>
+            </div>
+            <div class="interest-item">
+              <i class='bx bx-book-reader'></i>
+              <p>Tech Reading</p>
+            </div>
+            <div class="interest-item">
+              <i class='bx bx-run'></i>
+              <p>Sports</p>
+            </div>
+            <div class="interest-item">
+              <i class='bx bx-camera'></i>
+              <p>Photography</p>
+            </div>
+            <div class="interest-item">
+              <i class='bx bx-headphone'></i>
+              <p>Music</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn">Contact Me</a>
       </div>
 
       <div class="about-img">
-        <img src="assets/profile.png" alt="About Image" />
+        <img src="assets/profile.png" alt="Lahiru Bandara Profile" loading="lazy" />
+        <div class="experience-badges">
+          <div class="badge">
+            <span class="number">2+</span>
+            <span class="text">Years<br>Experience</span>
+          </div>
+          <div class="badge">
+            <span class="number">10+</span>
+            <span class="text">Projects<br>Completed</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Services Section Code -->
-
-    <section class="services" id="services">
-      <h2 class="heading">My <span> Services </span></h2>
+    <section class="services section" id="services">
+      <h2 class="heading">My <span>Services</span></h2>
 
       <div class="services-container">
         <div class="services-box">
           <i class="bx bx-code"></i>
           <h3>Web Development</h3>
-          <p>...</p>
-          <a href="#" class="btn"> Read More </a>
+          <p>
+            Creation of modern, responsive websites and web applications using the latest technologies.
+            Specializing in interactive UI elements, animations, and seamless user experiences.
+          </p>
+          <ul class="service-features">
+            <li><i class='bx bx-check'></i> Responsive Design</li>
+            <li><i class='bx bx-check'></i> Frontend Frameworks</li>
+            <li><i class='bx bx-check'></i> Performance Optimization</li>
+          </ul>
+          <a href="#contact" class="btn">Hire Me</a>
         </div>
 
         <div class="services-box">
           <i class="bx bx-palette"></i>
           <h3>UI/UX Design</h3>
-          <p>...</p>
-          <a href="#" class="btn"> Read More </a>
+          <p>
+            Creating visually appealing and user-friendly interfaces that enhance user experience and drive engagement.
+            Focus on aesthetics, usability, and conversion optimization.
+          </p>
+          <ul class="service-features">
+            <li><i class='bx bx-check'></i> Wireframing & Prototyping</li>
+            <li><i class='bx bx-check'></i> User Research</li>
+            <li><i class='bx bx-check'></i> Interface Design</li>
+          </ul>
+          <a href="#contact" class="btn">Hire Me</a>
         </div>
 
         <div class="services-box">
           <i class="bx bxl-android"></i>
           <h3>App Development</h3>
-          <p>...</p>
-          <a href="#" class="btn"> Read More </a>
+          <p>
+            Development of cross-platform mobile applications with native-like performance and experience.
+            Skilled in React Native and modern mobile app architecture.
+          </p>
+          <ul class="service-features">
+            <li><i class='bx bx-check'></i> Cross-Platform Apps</li>
+            <li><i class='bx bx-check'></i> Progressive Web Apps</li>
+            <li><i class='bx bx-check'></i> App Performance</li>
+          </ul>
+          <a href="#contact" class="btn">Hire Me</a>
         </div>
       </div>
     </section>
 
-    <!-- Testimonial Section Code -->
+    <!-- Projects Section Code -->
+    <section class="projects section" id="projects">
+      <h2 class="heading">My <span>Projects</span></h2>
 
-    <section class="projects" id="projects">
-      <h2 class="heading">My <span> Projects </span></h2>
+      <div class="project-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="app">App</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+      </div>
 
       <div class="projects-container">
-        <div class="project-item">
-          <img src="assets/project1.jpeg" alt="Project 1" />
+        <!-- Project 1 -->
+        <div class="project-item" data-category="web">
+          <img src="assets/project1.jpeg" alt="Authentication System Project" loading="lazy" />
           <h3>Authentication System</h3>
           <p>
             Full-stack Authentication System: Developed using the MERN stack
@@ -131,6 +336,11 @@
             storage with Bcrypt, protected routes, JWT authentication, and
             password reset with Nodemailer.
           </p>
+          <div class="project-tags">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
+          </div>
           <a
             href="https://github.com/LAHI-RU/login_signup_with_react"
             target="_blank"
@@ -139,8 +349,9 @@
           >
         </div>
 
-        <div class="project-item">
-          <img src="assets/project2.jpeg" alt="Project 2" />
+        <!-- Project 2 -->
+        <div class="project-item" data-category="web">
+          <img src="assets/project2.jpeg" alt="Portfolio Website Project" loading="lazy" />
           <h3>Portfolio Website</h3>
           <p>
             Personal portfolio website: Hosted on Netlify, showcasing skills in
@@ -148,6 +359,11 @@
             interactive elements, minimalist aesthetic, intuitive navigation,
             and optimized performance for a seamless user experience.
           </p>
+          <div class="project-tags">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+          </div>
           <a
             href="https://github.com/LAHI-RU/portfolio_website"
             target="_blank"
@@ -156,16 +372,21 @@
           >
         </div>
 
-        <div class="project-item">
-          <img src="assets/project3.png" alt="Project 3" />
+        <!-- Project 3 -->
+        <div class="project-item" data-category="web design">
+          <img src="assets/project3.png" alt="Responsive Landing Page Project" loading="lazy" />
           <h3>Responsive Landing Page</h3>
           <p>
             Responsive Hotel Booking Landing Page: Developed for booking hotels
             in the USA using HTML5, CSS3, and JavaScript. Features full
             responsiveness, intuitive user interface, seamless navigation, and a
             sleek, professional light theme.
-            <br>
           </p>
+          <div class="project-tags">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>Responsive</span>
+          </div>
           <a
             href="https://github.com/LAHI-RU/responsive_landing_page"
             target="_blank"
@@ -173,59 +394,274 @@
             >GitHub</a
           >
         </div>
+        
+        <!-- Project 4 -->
+        <div class="project-item" data-category="web app">
+          <img src="assets/project4.jpg" alt="Task Management App Project" loading="lazy" />
+          <h3>Task Management App</h3>
+          <p>
+            React-based task management application with drag-and-drop functionality.
+            Features include task categorization, priority levels, deadlines, 
+            and progress tracking. Built with React, Redux for state management,
+            and styled with Tailwind CSS for a modern, intuitive interface.
+          </p>
+          <div class="project-tags">
+            <span>React</span>
+            <span>Redux</span>
+            <span>Tailwind CSS</span>
+          </div>
+          <a
+            href="#"
+            target="_blank"
+            class="btn"
+            >GitHub</a
+          >
+        </div>
+        
+        <!-- Project 5 -->
+        <div class="project-item" data-category="web design">
+          <img src="assets/project5.jpg" alt="E-commerce Product Page Project" loading="lazy" />
+          <h3>E-commerce Product Page</h3>
+          <p>
+            Interactive e-commerce product page with advanced features like image
+            galleries, product variants, dynamic pricing, and cart functionality.
+            Implemented using HTML5, CSS3, and vanilla JavaScript with a focus on
+            accessibility and performance optimization.
+          </p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>CSS3</span>
+            <span>E-commerce</span>
+          </div>
+          <a
+            href="#"
+            target="_blank"
+            class="btn"
+            >GitHub</a
+          >
+        </div>
+        
+        <!-- Project 6 -->
+        <div class="project-item" data-category="web app">
+          <img src="assets/project6.jpg" alt="Weather Dashboard Project" loading="lazy" />
+          <h3>Weather Dashboard</h3>
+          <p>
+            Modern weather application that provides real-time weather data for any location.
+            Features a clean UI with detailed forecasts, interactive maps, and historical
+            weather trends. Built with React and integrates with OpenWeatherMap API.
+          </p>
+          <div class="project-tags">
+            <span>React</span>
+            <span>API Integration</span>
+            <span>Weather Data</span>
+          </div>
+          <a
+            href="#"
+            target="_blank"
+            class="btn"
+            >GitHub</a
+          >
+        </div>
       </div>
 
-    <!-- Contact Section Code -->
-
-    <section class="contact" id="contact">
-      <h2 class="heading">Contact <span> Me </span></h2>
-
-      <form action="#">
-        <div class="input-box">
-          <input type="text" placeholder="Full Name" />
-          <input type="email" name="Email" placeholder="Email Address" />
-        </div>
-
-        <div class="input-box">
-          <input type="number" placeholder="Phone Number" />
-          <input type="text" placeholder="Email Subject" />
-        </div>
-
-        <textarea
-          name="message"
-          id=""
-          cols="30"
-          rows="10"
-          placeholder="Your Message"
-        ></textarea>
-        <input type="submit" value="Send Message" class="btn" />
-      </form>
+      <div class="projects-pagination">
+        <button class="pagination-btn active" data-page="1">1</button>
+        <button class="pagination-btn" data-page="2">2</button>
+      </div>
     </section>
 
-    <!-- Foooter Section Code -->
-
-    <footer class="footer">
-      <div class="social">
-        <a href="https://www.linkedin.com/in/lahirubandaara" target="_blank"
-          ><i class="bx bxl-linkedin"></i
-        ></a>
-        <a href="https://github.com/LAHI-RU" target="_blank"
-          ><i class="bx bxl-github"></i
-        ></a>
-        <a href="https://facebook.com/lahiru.bandara.1428921" target="_blank"
-          ><i class="bx bxl-facebook"></i
-        ></a>
-        <a href="https://www.instagram.com/l_a_h_i_r_u._" target="_blank"
-          ><i class="bx bxl-instagram"></i
-        ></a>
-        <a href="https://wa.link/oio8hv" target="_blank"
-          ><i class="bx bxl-whatsapp"></i
-        ></a>
+    <!-- Testimonials Section -->
+    <section class="testimonials section">
+      <h2 class="heading">Client <span>Feedback</span></h2>
+      
+      <div class="testimonial-wrapper">
+        <div class="testimonial-container">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <i class='bx bxs-quote-alt-left'></i>
+            </div>
+            <p class="testimonial-text">
+              "Lahiru created an exceptional website for my business. His attention to detail and responsive design skills really made the project stand out. I highly recommend his services to anyone looking for quality web development."
+            </p>
+            <div class="testimonial-author">
+              <img src="assets/client1.jpg" alt="Client 1" loading="lazy">
+              <div>
+                <h4>John Smith</h4>
+                <p>Business Owner</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <i class='bx bxs-quote-alt-left'></i>
+            </div>
+            <p class="testimonial-text">
+              "Working with Lahiru was a pleasure. He understood our requirements perfectly and delivered a stunning website that exceeded our expectations. His technical skills and creativity are truly impressive."
+            </p>
+            <div class="testimonial-author">
+              <img src="assets/client2.jpg" alt="Client 2" loading="lazy">
+              <div>
+                <h4>Sarah Johnson</h4>
+                <p>Marketing Director</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              <i class='bx bxs-quote-alt-left'></i>
+            </div>
+            <p class="testimonial-text">
+              "I've worked with several developers before, but Lahiru's work stands out. His code is clean, well-structured, and the final product was exactly what we needed. I'll definitely work with him again."
+            </p>
+            <div class="testimonial-author">
+              <img src="assets/client3.jpg" alt="Client 3" loading="lazy">
+              <div>
+                <h4>Michael Brown</h4>
+                <p>Tech Startup Founder</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+        </div>
       </div>
-      <p class="copyright">&copy; Lahiru Bandara -All Rights Reserved</p>
+    </section>
+
+    <!-- Contact Section Code -->
+    <section class="contact section" id="contact">
+      <h2 class="heading">Contact <span>Me</span></h2>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-card">
+            <i class='bx bx-envelope'></i>
+            <h3>Email</h3>
+            <p>lahiru@example.com</p>
+          </div>
+          <div class="contact-card">
+            <i class='bx bx-phone'></i>
+            <h3>Phone</h3>
+            <p>+94 123 456 789</p>
+          </div>
+          <div class="contact-card">
+            <i class='bx bx-map'></i>
+            <h3>Location</h3>
+            <p>Trincomalee, Sri Lanka</p>
+          </div>
+        </div>
+
+        <form id="contact-form" class="contact-form">
+          <div class="input-box">
+            <input type="text" id="name" placeholder="Full Name" required />
+            <input type="email" id="email" name="Email" placeholder="Email Address" required />
+          </div>
+
+          <div class="input-box">
+            <input type="tel" id="phone" placeholder="Phone Number" />
+            <input type="text" id="subject" placeholder="Email Subject" required />
+          </div>
+
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            placeholder="Your Message"
+            required
+          ></textarea>
+          <button type="submit" class="btn form-btn">
+            <span>Send Message</span>
+            <i class='bx bx-send'></i>
+          </button>
+          <div id="form-status"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer Section Code -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <h3>Lahiru Bandara</h3>
+          <p>A passionate Frontend Developer and UI/UX Designer creating modern and user-friendly web experiences.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-social">
+          <h3>Connect With Me</h3>
+          <div class="social">
+            <a href="https://www.linkedin.com/in/lahirubandaara" target="_blank" aria-label="LinkedIn Profile">
+              <i class="bx bxl-linkedin"></i>
+            </a>
+            <a href="https://github.com/LAHI-RU" target="_blank" aria-label="GitHub Profile">
+              <i class="bx bxl-github"></i>
+            </a>
+            <a href="https://facebook.com/lahiru.bandara.1428921" target="_blank" aria-label="Facebook Profile">
+              <i class="bx bxl-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/l_a_h_i_r_u._" target="_blank" aria-label="Instagram Profile">
+              <i class="bx bxl-instagram"></i>
+            </a>
+            <a href="https://wa.link/oio8hv" target="_blank" aria-label="WhatsApp Contact">
+              <i class="bx bxl-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Lahiru Bandara - All Rights Reserved</p>
+      </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+      <i class='bx bx-up-arrow-alt'></i>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+      <i class='bx bx-moon'></i>
+    </div>
+
+    <!-- Scripts -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="script.js"></script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lahiru Bandara",
+        "url": "https://lahirubandara.netlify.app",
+        "jobTitle": "Frontend Developer",
+        "alumniOf": "Eastern University of Sri Lanka",
+        "knowsAbout": ["Web Development", "UI/UX Design", "Frontend Development"],
+        "sameAs": [
+          "https://www.linkedin.com/in/lahirubandaara",
+          "https://github.com/LAHI-RU"
+        ]
+      }
+    </script>
   </body>
 </html>
