@@ -26,7 +26,7 @@ window.onscroll = () => {
 
 // Typed.js initialization
 const typed = new Typed(".multiple-text", {
-  strings: ["Frontend Developer", "Web Designer", "UI/UX Designer"],
+  strings: ["Full-stack Developer", "UI/UX Designer", "Web Designer"],
   typeSpeed: 80,
   backSpeed: 80,
   backDelay: 1200,
@@ -103,3 +103,196 @@ let currentPage = 1;
 // Function to show projects for current page
 function showProjects(page) {
   const startIndex = (page - 1) * projectsPerPage;
+  const endIndex = startIndex + projectsPerPage;
+  
+  // Hide all projects first
+  projectItems.forEach((item, index) => {
+    if (index >= startIndex && index < endIndex) {
+      item.style.display = 'block';
+      setTimeout(() => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+      }, 100);
+    } else {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        item.style.display = 'none';
+      }, 300);
+    }
+  });
+}
+
+// Initialize pagination
+paginationBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active class
+    paginationBtns.forEach(btn => btn.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Show projects for clicked page
+    currentPage = parseInt(btn.dataset.page);
+    showProjects(currentPage);
+  });
+});
+
+// Initialize projects display
+showProjects(currentPage);
+
+// Testimonial Slider
+const testimonialContainer = document.querySelector('.testimonial-container');
+const testimonialDots = document.querySelectorAll('.dot');
+let currentSlide = 0;
+const slideCount = testimonialDots.length;
+
+// Function to update slider
+function updateSlider() {
+  testimonialContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+  
+  // Update active dot
+  testimonialDots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentSlide);
+  });
+}
+
+// Event listeners for dots
+testimonialDots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentSlide = index;
+    updateSlider();
+  });
+});
+
+// Auto slide testimonials every 5 seconds
+setInterval(() => {
+  currentSlide = (currentSlide + 1) % slideCount;
+  updateSlider();
+}, 5000);
+
+// Initialize testimonial slider
+updateSlider();
+
+// Back to Top Button
+const backToTop = document.querySelector('.back-to-top');
+backToTop.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// Theme Toggle
+const themeToggle = document.querySelector('.theme-toggle');
+const body = document.body;
+
+// Check if user has a theme preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+  body.classList.add('light-mode');
+  themeToggle.querySelector('i').classList.replace('bx-moon', 'bx-sun');
+}
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('light-mode');
+  
+  // Toggle icon
+  const icon = themeToggle.querySelector('i');
+  if (body.classList.contains('light-mode')) {
+    icon.classList.replace('bx-moon', 'bx-sun');
+    localStorage.setItem('theme', 'light');
+  } else {
+    icon.classList.replace('bx-sun', 'bx-moon');
+    localStorage.setItem('theme', 'dark');
+  }
+});
+
+// Reveal sections on scroll
+function revealSections() {
+  const sections = document.querySelectorAll('.section');
+  const windowHeight = window.innerHeight;
+  const revealPoint = 150;
+  
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    
+    if (sectionTop < windowHeight - revealPoint) {
+      section.classList.add('show');
+    }
+  });
+}
+
+// Handle active navigation links on scroll
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (window.scrollY >= sectionTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').substring(1) === current) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// Form submission
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  // Get form data
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+  
+  // Simple form validation
+  if (!name || !email || !message) {
+    formStatus.textContent = 'Please fill in all required fields.';
+    formStatus.style.color = '#ff5252';
+    return;
+  }
+  
+  // Email validation with regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    formStatus.textContent = 'Please enter a valid email address.';
+    formStatus.style.color = '#ff5252';
+    return;
+  }
+  
+  // Simulate form submission
+  formStatus.textContent = 'Sending...';
+  
+  // In a real application, you'd send the form data to a server here
+  // For demo purposes, we'll just simulate a successful submission after a delay
+  setTimeout(() => {
+    contactForm.reset();
+    formStatus.textContent = 'Message sent successfully!';
+    formStatus.style.color = '#4db6ac';
+    
+    setTimeout(() => {
+      formStatus.textContent = '';
+    }, 5000);
+  }, 1500);
+});
+
+// Initialize animations when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize first visible section
+  const firstSection = document.querySelector('#home');
+  firstSection.classList.add('show');
+  
+  // Run initial scroll-based functions
+  revealSections();
+});
