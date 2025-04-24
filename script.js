@@ -287,6 +287,34 @@ contactForm.addEventListener('submit', (e) => {
   }, 1500);
 });
 
+// Skills cards animation
+function initSkillCards() {
+  const skillCards = document.querySelectorAll('.skill-card');
+  
+  skillCards.forEach(card => {
+    card.addEventListener('mouseenter', (e) => {
+      const icons = card.querySelectorAll('i');
+      icons.forEach(icon => {
+        icon.style.transform = 'scale(1.1)';
+        icon.style.transition = 'transform 0.3s ease';
+      });
+    });
+    
+    card.addEventListener('mouseleave', (e) => {
+      const icons = card.querySelectorAll('i');
+      icons.forEach(icon => {
+        icon.style.transform = 'scale(1)';
+      });
+    });
+  });
+}
+
+// Initialize skill cards when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  initSkillCards();
+  // ... (keep existing DOMContentLoaded code)
+});
+
 // Initialize animations when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize first visible section
