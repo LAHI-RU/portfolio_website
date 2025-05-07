@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,6 +16,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <!-- Boxicons -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     
@@ -31,6 +37,10 @@
     <div class="preloader">
       <div class="loader"></div>
     </div>
+    
+    <!-- Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
     
     <!-- Header Section Code -->
     <header class="header">
@@ -133,105 +143,103 @@
           </div>
         </div>
         
-        <!-- Replace the skills-tab content (around line 136-184) with this: -->
-<div class="tab-content skills-tab">
-  <h3>Technical <span>Expertise</span></h3>
-  <div class="skills-container">
-    <!-- Frontend Development Skills -->
-    <div class="skill-category">
-      <h4>Frontend Development</h4>
-      <div class="skills-grid">
-        <div class="skill-card" data-aos="fade-up">
-          <i class='bx bxl-html5'></i>
-          <h5>HTML5 & CSS3</h5>
-          <p>Modern web development with semantic markup and responsive styling</p>
-          <div class="skill-tags">
-            <span>Semantic HTML</span>
-            <span>Flexbox</span>
-            <span>Grid</span>
+        <div class="tab-content skills-tab">
+          <h3>Technical <span>Expertise</span></h3>
+          <div class="skills-container">
+            <!-- Frontend Development Skills -->
+            <div class="skill-category">
+              <h4>Frontend Development</h4>
+              <div class="skills-grid">
+                <div class="skill-card" data-aos="fade-up">
+                  <i class='bx bxl-html5'></i>
+                  <h5>HTML5 & CSS3</h5>
+                  <p>Modern web development with semantic markup and responsive styling</p>
+                  <div class="skill-tags">
+                    <span>Semantic HTML</span>
+                    <span>Flexbox</span>
+                    <span>Grid</span>
+                  </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                  <i class='bx bxl-javascript'></i>
+                  <h5>JavaScript</h5>
+                  <p>ES6+ features, DOM manipulation, and asynchronous programming</p>
+                  <div class="skill-tags">
+                    <span>ES6+</span>
+                    <span>APIs</span>
+                    <span>Async</span>
+                  </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                  <i class='bx bxl-react'></i>
+                  <h5>React.js</h5>
+                  <p>Component-based architecture and state management</p>
+                  <div class="skill-tags">
+                    <span>Hooks</span>
+                    <span>Redux</span>
+                    <span>Context</span>
+                  </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                  <i class='bx bxl-figma'></i>
+                  <h5>UI/UX Design</h5>
+                  <p>User-centered design and interactive prototyping</p>
+                  <div class="skill-tags">
+                    <span>Wireframes</span>
+                    <span>Prototypes</span>
+                    <span>User Flow</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Backend & Tools Skills -->
+            <div class="skill-category">
+              <h4>Backend & Tools</h4>
+              <div class="skills-grid">
+                <div class="skill-card" data-aos="fade-up">
+                  <i class='bx bxl-nodejs'></i>
+                  <h5>Node.js</h5>
+                  <p>Server-side JavaScript and API development</p>
+                  <div class="skill-tags">
+                    <span>Express</span>
+                    <span>REST APIs</span>
+                    <span>MVC</span>
+                  </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                  <i class='bx bxl-mongodb'></i>
+                  <h5>MongoDB</h5>
+                  <p>NoSQL database design and management</p>
+                  <div class="skill-tags">
+                    <span>Mongoose</span>
+                    <span>Aggregation</span>
+                    <span>Atlas</span>
+                  </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                  <i class='bx bxl-git'></i>
+                  <h5>Git & GitHub</h5>
+                  <p>Version control and collaborative development</p>
+                  <div class="skill-tags">
+                    <span>Git Flow</span>
+                    <span>CI/CD</span>
+                    <span>Actions</span>
+                  </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                  <i class='bx bx-devices'></i>
+                  <h5>Responsive Design</h5>
+                  <p>Cross-platform and mobile-first development</p>
+                  <div class="skill-tags">
+                    <span>Mobile First</span>
+                    <span>Media Queries</span>
+                    <span>Progressive</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-          <i class='bx bxl-javascript'></i>
-          <h5>JavaScript</h5>
-          <p>ES6+ features, DOM manipulation, and asynchronous programming</p>
-          <div class="skill-tags">
-            <span>ES6+</span>
-            <span>APIs</span>
-            <span>Async</span>
-          </div>
-        </div>
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-          <i class='bx bxl-react'></i>
-          <h5>React.js</h5>
-          <p>Component-based architecture and state management</p>
-          <div class="skill-tags">
-            <span>Hooks</span>
-            <span>Redux</span>
-            <span>Context</span>
-          </div>
-        </div>
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-          <i class='bx bxl-figma'></i>
-          <h5>UI/UX Design</h5>
-          <p>User-centered design and interactive prototyping</p>
-          <div class="skill-tags">
-            <span>Wireframes</span>
-            <span>Prototypes</span>
-            <span>User Flow</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Backend & Tools Skills -->
-    <div class="skill-category">
-      <h4>Backend & Tools</h4>
-      <div class="skills-grid">
-        <div class="skill-card" data-aos="fade-up">
-          <i class='bx bxl-nodejs'></i>
-          <h5>Node.js</h5>
-          <p>Server-side JavaScript and API development</p>
-          <div class="skill-tags">
-            <span>Express</span>
-            <span>REST APIs</span>
-            <span>MVC</span>
-          </div>
-        </div>
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-          <i class='bx bxl-mongodb'></i>
-          <h5>MongoDB</h5>
-          <p>NoSQL database design and management</p>
-          <div class="skill-tags">
-            <span>Mongoose</span>
-            <span>Aggregation</span>
-            <span>Atlas</span>
-          </div>
-        </div>
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-          <i class='bx bxl-git'></i>
-          <h5>Git & GitHub</h5>
-          <p>Version control and collaborative development</p>
-          <div class="skill-tags">
-            <span>Git Flow</span>
-            <span>CI/CD</span>
-            <span>Actions</span>
-          </div>
-        </div>
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-          <i class='bx bx-devices'></i>
-          <h5>Responsive Design</h5>
-          <p>Cross-platform and mobile-first development</p>
-          <div class="skill-tags">
-            <span>Mobile First</span>
-            <span>Media Queries</span>
-            <span>Progressive</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
           
           <div class="tools-container">
             <h4>Tools & Technologies</h4>
@@ -716,3 +724,4 @@
     </script>
   </body>
 </html>
+```

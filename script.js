@@ -112,7 +112,7 @@ function showProjects(page) {
       setTimeout(() => {
         item.style.opacity = '1';
         item.style.transform = 'translateY(0)';
-      }, 100);
+      }, 100 * (index - startIndex));
     } else {
       item.style.opacity = '0';
       item.style.transform = 'translateY(20px)';
@@ -135,9 +135,6 @@ paginationBtns.forEach(btn => {
     showProjects(currentPage);
   });
 });
-
-// Initialize projects display
-showProjects(currentPage);
 
 // Testimonial Slider
 const testimonialContainer = document.querySelector('.testimonial-container');
@@ -168,9 +165,6 @@ setInterval(() => {
   currentSlide = (currentSlide + 1) % slideCount;
   updateSlider();
 }, 5000);
-
-// Initialize testimonial slider
-updateSlider();
 
 // Back to Top Button
 const backToTop = document.querySelector('.back-to-top');
@@ -206,7 +200,7 @@ themeToggle.addEventListener('click', () => {
   }
 });
 
-// Reveal sections on scroll
+// Enhanced scroll reveal animation
 function revealSections() {
   const sections = document.querySelectorAll('.section');
   const windowHeight = window.innerHeight;
@@ -217,6 +211,15 @@ function revealSections() {
     
     if (sectionTop < windowHeight - revealPoint) {
       section.classList.add('show');
+      
+      // Reveal items within section with staggered delay
+      const items = section.querySelectorAll('.skill-card, .services-box, .project-item, .contact-card');
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }, 100 * index);
+      });
     }
   });
 }
@@ -279,12 +282,49 @@ contactForm.addEventListener('submit', (e) => {
   setTimeout(() => {
     contactForm.reset();
     formStatus.textContent = 'Message sent successfully!';
-    formStatus.style.color = '#4db6ac';
+    formStatus.style.color = '#64ffda';
     
     setTimeout(() => {
       formStatus.textContent = '';
     }, 5000);
   }, 1500);
+});
+
+// Custom cursor effect
+document.addEventListener('mousemove', function(e) {
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorOutline = document.querySelector('.cursor-outline');
+  
+  if (cursorDot && cursorOutline) {
+    cursorDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    
+    // Add slight delay to outline for effect
+    setTimeout(() => {
+      cursorOutline.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    }, 50);
+  }
+});
+
+// Change cursor size on interactive elements
+const interactiveElements = document.querySelectorAll('a, button, .btn, .filter-btn, .tab-btn, .pagination-btn, .dot');
+interactiveElements.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    const cursorOutline = document.querySelector('.cursor-outline');
+    if (cursorOutline) {
+      cursorOutline.style.width = '60px';
+      cursorOutline.style.height = '60px';
+      cursorOutline.style.opacity = '0.5';
+    }
+  });
+  
+  el.addEventListener('mouseleave', () => {
+    const cursorOutline = document.querySelector('.cursor-outline');
+    if (cursorOutline) {
+      cursorOutline.style.width = '40px';
+      cursorOutline.style.height = '40px';
+      cursorOutline.style.opacity = '1';
+    }
+  });
 });
 
 // Skills cards animation
@@ -309,14 +349,24 @@ function initSkillCards() {
   });
 }
 
-// Initialize skill cards when DOM is loaded
+// Initialize animated items for scroll reveal
 document.addEventListener('DOMContentLoaded', () => {
+  const animatedItems = document.querySelectorAll('.skill-card, .services-box, .project-item, .contact-card');
+  animatedItems.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(20px)';
+    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  });
+  
+  // Initialize skill cards
   initSkillCards();
-  // ... (keep existing DOMContentLoaded code)
-});
-
-// Initialize animations when DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
+  
+  // Initialize projects display
+  showProjects(currentPage);
+  
+  // Initialize testimonial slider
+  updateSlider();
+  
   // Initialize first visible section
   const firstSection = document.querySelector('#home');
   firstSection.classList.add('show');
