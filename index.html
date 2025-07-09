@@ -1,15 +1,14 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Lahiru Bandara - Full-stack Developer and Web Designer Portfolio showcasing projects, skills and services">
-    <meta name="keywords" content="Full-stack developer, web designer, UI/UX designer, portfolio, Lahiru Bandara">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lahiru Bandara - Creative Frontend Developer & UI/UX Designer crafting exceptional digital experiences">
+    <meta name="keywords" content="Frontend developer, Full-Stack Developer, AI/ML Enthusiast, creative designer, portfolio, Lahiru Bandara">
     
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Lahiru Bandara - Frontend Developer Portfolio">
-    <meta property="og:description" content="Professional portfolio showcasing web design and development projects">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Lahiru Bandara - Creative Full-Stack Developer">
+    <meta property="og:description" content="Transforming ideas into stunning digital experiences through innovative web design and development">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lahirubandara.netlify.app">
     
@@ -19,709 +18,736 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Boxicons -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
     
     <!-- Preload Critical Assets -->
     <link rel="preload" href="assets/profile1.png" as="image">
     
-    <title>Lahiru Bandara - Portfolio</title>
-  </head>
-  <body>
-    <!-- Preloader -->
-    <div class="preloader">
-      <div class="loader"></div>
+    <title>Lahiru Bandara </title>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
     </div>
-    
-    <!-- Cursor Elements -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-    
-    <!-- Header Section Code -->
-    <header class="header">
-      <a href="#home" class="logo"> Lahiru Bandara </a>
 
-      <i class="bx bx-menu" id="menu-icon"></i>
+    <!-- Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
 
-      <nav class="navbar">
-        <a href="#home" class="nav-link active"> Home </a>
-        <a href="#about" class="nav-link"> About </a>
-        <a href="#services" class="nav-link"> Services </a>
-        <a href="#projects" class="nav-link"> Projects </a>
-        <a href="#contact" class="nav-link"> Contact </a>
-      </nav>
-    </header>
-
-    <!-- Home Section Code -->
-    <section class="home section" id="home">
-      <div class="home-img">
-        <img src="assets/profile1.png" alt="Lahiru Bandara Profile Photo" loading="lazy" />
-      </div>
-
-      <div class="home-content">
-        <h3>Hello, Myself</h3>
-        <h1>Lahiru Bandara</h1>
-        <h3>
-          And I'm a
-          <span class="multiple-text"> </span>
-        </h3>
-        <p>
-          Welcome to my Portfolio! Check out the other sections to discover
-          more about my work, skills, and professional experience.
-        </p>
-
-        <div class="social-media">
-          <a href="https://www.linkedin.com/in/lahirubandaara" target="_blank" aria-label="LinkedIn Profile">
-            <i class="bx bxl-linkedin"></i>
-          </a>
-          <a href="https://github.com/LAHI-RU" target="_blank" aria-label="GitHub Profile">
-            <i class="bx bxl-github"></i>
-          </a>
-          <a href="https://facebook.com/lahiru.bandara.1428921" target="_blank" aria-label="Facebook Profile">
-            <i class="bx bxl-facebook"></i>
-          </a>
-          <a href="https://www.instagram.com/l_a_h_i_r_u._" target="_blank" aria-label="Instagram Profile">
-            <i class="bx bxl-instagram"></i>
-          </a>
-          <a href="https://wa.link/oio8hv" target="_blank" aria-label="WhatsApp Contact">
-            <i class="bx bxl-whatsapp"></i>
-          </a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">Lahiru Bandara</span>
+                <span class="logo-dot">.</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <i class='bx bx-moon'></i>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
+    </nav>
 
-        <a href="assets/LahiruCV.pdf" class="btn" download> Download CV </a>
-      </div>
-    </section>
-
-    <!-- About Section code  -->
-    <section class="about section" id="about">
-      <div class="about-content">
-        <h2 class="heading">About <span>Me</span></h2>
-        
-        <div class="about-tabs">
-          <button class="tab-btn active" data-tab="education">Education</button>
-          <button class="tab-btn" data-tab="skills">Skills</button>
-          <button class="tab-btn" data-tab="interests">Interests</button>
-        </div>
-        
-        <div class="tab-content education-tab active">
-          <h3>Academic <span>Journey</span></h3>
-          <div class="education-item">
-            <div class="edu-icon"><i class='bx bxs-graduation'></i></div>
-            <div class="edu-details">
-              <h4>Bachelor of Computer Science [BCS]</h4>
-              <p class="institution">Trincomalee Campus, Eastern University of Sri Lanka</p>
-              <p class="duration">Jun 2022 - Present</p>
-              <p class="description">
-                Currently pursuing a comprehensive computer science degree with focus on software development,
-                algorithms, and web technologies. Maintaining a GPA of 3.5/4.0 with particular excellence in
-                programming and software engineering courses.
-              </p>
-              <ul class="achievements">
-                <li>Active member of the university's Computing Society</li>
-                <li>Participant in hackathons and coding competitions</li>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-greeting">Hey there, I'm</span>
+                    <h1 class="hero-title">
+                        <span class="title-line">Lahiru</span>
+                        <span class="title-line">Bandara</span>
+                    </h1>
+                    <p class="hero-description">
+                        A passionate <span class="highlight">Full-Stack Developer</span> & 
+                        <span class="highlight">Aspiring AI/ML Engineer</span> crafting exceptional digital experiences 
+                        that blend creativity with cutting-edge technology.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years Learning</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Dedication</span>
+                        </div>
+                    </div>
+                </div>
                 
-              </ul>
-            </div>
-          </div>
-          
-          <div class="education-item">
-            <div class="edu-icon"><i class='bx bxs-school'></i></div>
-            <div class="edu-details">
-              <h4>Govt. Science College Matale</h4>
-              <p class="institution">GCE Advanced Level</p>
-              <p class="duration">Completed 2020</p>
-              <p class="description">
-                Specialized in math stream with z-score - 0.8515 <br>
-                Physics - B , Chemistry - C , Combined Maths - C 
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="tab-content skills-tab">
-          <h3>Technical <span>Expertise</span></h3>
-          <div class="skills-container">
-            <!-- Frontend Development Skills -->
-            <div class="skill-category">
-              <h4>Frontend Development</h4>
-              <div class="skills-grid">
-                <div class="skill-card" data-aos="fade-up">
-                  <i class='bx bxl-html5'></i>
-                  <h5>HTML5 & CSS3</h5>
-                  <p>Modern web development with semantic markup and responsive styling</p>
-                  <div class="skill-tags">
-                    <span>Semantic HTML</span>
-                    <span>Flexbox</span>
-                    <span>Grid</span>
-                  </div>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                    <a href="#home" class="btn btn-secondary" download>
+                        <i class='bx bx-download'></i>
+                        <span>Download CV</span>
+                    </a>
                 </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-                  <i class='bx bxl-javascript'></i>
-                  <h5>JavaScript</h5>
-                  <p>ES6+ features, DOM manipulation, and asynchronous programming</p>
-                  <div class="skill-tags">
-                    <span>ES6+</span>
-                    <span>APIs</span>
-                    <span>Async</span>
-                  </div>
+                
+                <div class="hero-social">
+                    <a href="https://www.linkedin.com/in/lahirubandaara" target="_blank" class="social-link">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="https://github.com/LAHI-RU" target="_blank" class="social-link">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                    <a href="https://facebook.com/lahiru.bandara.1428921" target="_blank" class="social-link">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="https://www.instagram.com/l_a_h_i_r_u._" target="_blank" class="social-link">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
                 </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-                  <i class='bx bxl-react'></i>
-                  <h5>React.js</h5>
-                  <p>Component-based architecture and state management</p>
-                  <div class="skill-tags">
-                    <span>Hooks</span>
-                    <span>Redux</span>
-                    <span>Context</span>
-                  </div>
-                </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-                  <i class='bx bxl-figma'></i>
-                  <h5>UI/UX Design</h5>
-                  <p>User-centered design and interactive prototyping</p>
-                  <div class="skill-tags">
-                    <span>Wireframes</span>
-                    <span>Prototypes</span>
-                    <span>User Flow</span>
-                  </div>
-                </div>
-              </div>
             </div>
             
-            <!-- Backend & Tools Skills -->
-            <div class="skill-category">
-              <h4>Backend & Tools</h4>
-              <div class="skills-grid">
-                <div class="skill-card" data-aos="fade-up">
-                  <i class='bx bxl-nodejs'></i>
-                  <h5>Node.js</h5>
-                  <p>Server-side JavaScript and API development</p>
-                  <div class="skill-tags">
-                    <span>Express</span>
-                    <span>REST APIs</span>
-                    <span>MVC</span>
-                  </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <img src="assets/profile1.png" alt="Lahiru Bandara" loading="eager">
+                    <div class="image-backdrop"></div>
                 </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-                  <i class='bx bxl-mongodb'></i>
-                  <h5>MongoDB</h5>
-                  <p>NoSQL database design and management</p>
-                  <div class="skill-tags">
-                    <span>Mongoose</span>
-                    <span>Aggregation</span>
-                    <span>Atlas</span>
-                  </div>
+                <div class="floating-elements">
+                    <div class="float-item" data-speed="0.5">
+                        <i class='bx bxl-react'></i>
+                    </div>
+                    <div class="float-item" data-speed="0.8">
+                        <i class='bx bxl-javascript'></i>
+                    </div>
+                    <div class="float-item" data-speed="0.3">
+                        <i class='bx bxl-css3'></i>
+                    </div>
+                    <div class="float-item" data-speed="0.6">
+                        <i class='bx bxl-figma'></i>
+                    </div>
                 </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-                  <i class='bx bxl-git'></i>
-                  <h5>Git & GitHub</h5>
-                  <p>Version control and collaborative development</p>
-                  <div class="skill-tags">
-                    <span>Git Flow</span>
-                    <span>CI/CD</span>
-                    <span>Actions</span>
-                  </div>
+            </div>
+        </div>
+        
+        <div class="hero-scroll">
+            <span>Scroll to explore</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get to know me</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-tabs">
+                        <button class="tab-btn active" data-tab="story">My Story</button>
+                        <button class="tab-btn" data-tab="skills">Skills</button>
+                        <button class="tab-btn" data-tab="education">Education</button>
+                    </div>
+                    
+                    <div class="tab-content story-tab active">
+                        <p>
+                            I'm a Computer Science undergraduate at Eastern University of Sri Lanka, passionate about 
+                            creating digital experiences that matter. My journey in tech began with a simple curiosity about how things work on the web. Over time, that spark grew into a deep commitment to building intelligent, user-focused solutions from responsive web apps to intelligent systems powered by machine learning.
+                        </p>
+                        <p>
+                            Through academic research, hands-on projects, and continuous self-learning, I’ve cultivated a strong foundation in modern development stacks and AI/ML principles. I’m driven by clean code, efficient design, and the endless possibilities at the intersection of frontend development and artificial intelligence.
+                        </p>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class='bx bx-code-alt'></i>
+                                <span>Clean Code Advocate</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class='bx bx-palette'></i>
+                                <span>Design Enthusiast</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class='bx bx-rocket'></i>
+                                <span>Performance Optimizer</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content skills-tab">
+                        <div class="skills-grid">
+
+                            <div class="skill-category">
+                                <h4>Programming Languages</h4>
+                                <div class="skill-tags">                               
+                                    <span>Python</span>
+                                    <span>Java</span>
+                                    <span>C</span> 
+                                    <span>C++</span>                                  
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h4>Frontend</h4>
+                                <div class="skill-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>React</span>
+                                    <span>Bootstrap</span>
+                                    <span>Tailwind CSS</span>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-category">
+                                <h4>Backend</h4>
+                                <div class="skill-tags">
+                                    <span>Node.js</span>
+                                    <span>Express</span>
+                                    <span>MongoDB</span>
+                                    <span>APIs</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h4>AI/ML</h4>
+                                <div class="skill-tags">
+                                    <span>TensorFlow</span>
+                                    <span>PyTorch</span>
+                                    <span>Scikit-learn</span>
+                                    <span>Pandas</span>
+                                    <span>NumPy</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h4>Tools & Cloud</h4>
+                                <div class="skill-tags">
+                                    <span>Docker</span>
+                                    <span>Git</span>
+                                    <span>VS Code</span>
+                                    <span>Jupyter</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content education-tab">
+                        <div class="education-item">
+                            <div class="edu-icon">
+                                <i class='bx bxs-graduation'></i>
+                            </div>
+                            <div class="edu-content">
+                                <h4>Bachelor of Computer Science</h4>
+                                <p class="edu-institution">Eastern University of Sri Lanka</p>
+                                <p class="edu-period">2022 - Present</p>
+                                <p class="edu-description">
+                                    Focusing on Full-Stack development, AI/ML, and modern web technologies. 
+                                    Maintaining strong academic performance while actively participating in 
+                                    coding competitions and tech communities.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="edu-icon">
+                                <i class='bx bxs-school'></i>
+                            </div>
+                            <div class="edu-content">
+                                <h4>GCE Advanced Level</h4>
+                                <p class="edu-institution">Govt. Science College Matale</p>
+                                <p class="edu-period">Completed 2020</p>
+                                <p class="edu-description">
+                                    Mathematics stream with Z-score 0.8515. Strong foundation in 
+                                    Physics, Chemistry, and Combined Mathematics.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-                  <i class='bx bx-devices'></i>
-                  <h5>Responsive Design</h5>
-                  <p>Cross-platform and mobile-first development</p>
-                  <div class="skill-tags">
-                    <span>Mobile First</span>
-                    <span>Media Queries</span>
-                    <span>Progressive</span>
-                  </div>
+                
+                <div class="about-visual">
+                    <div class="about-image">
+                        <img src="assets/profile.png" alt="Lahiru Bandara" loading="lazy">
+                    </div>
+                    <div class="experience-card">
+                        <h4>Academic Excellence</h4>
+                        <p>Combining theoretical knowledge with practical application through innovative projects and continuous learning.</p>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          
-          <div class="tools-container">
-            <h4>Tools & Technologies</h4>
-            <div class="tools-grid">
-              <div class="tool-item">
-                <i class='bx bxl-visual-studio'></i>
-                <span>VS Code</span>
-              </div>
-              <div class="tool-item">
-                <i class='bx bxl-figma'></i>
-                <span>Figma</span>
-              </div>
-              <div class="tool-item">
-                <i class='bx bxl-github'></i>
-                <span>GitHub</span>
-              </div>
-              <div class="tool-item">
-                <i class='bx bxl-bootstrap'></i>
-                <span>Bootstrap</span>
-              </div>
-              <div class="tool-item">
-                <i class='bx bxl-tailwind-css'></i>
-                <span>Tailwind</span>
-              </div>
-              <div class="tool-item">
-                <i class='bx bxl-netlify'></i>
-                <span>Netlify</span>
-              </div>
-            </div>
-          </div>
         </div>
-        
-        <div class="tab-content interests-tab">
-          <h3>Personal <span>Interests</span></h3>
-          <div class="interests-grid">
-            <div class="interest-item">
-              <i class='bx bx-code-alt'></i>
-              <p>Open Source</p>
-            </div>
-            <div class="interest-item">
-              <i class='bx bx-palette'></i>
-              <p>UI Design</p>
-            </div>
-            <div class="interest-item">
-              <i class='bx bx-book-reader'></i>
-              <p>Tech Reading</p>
-            </div>
-            <div class="interest-item">
-              <i class='bx bx-run'></i>
-              <p>Sports</p>
-            </div>
-            <div class="interest-item">
-              <i class='bx bx-camera'></i>
-              <p>Photography</p>
-            </div>
-            <div class="interest-item">
-              <i class='bx bx-headphone'></i>
-              <p>Music</p>
-            </div>
-          </div>
-        </div>
-
-        <a href="#contact" class="btn">Contact Me</a>
-      </div>
-
-      <div class="about-img">
-        <img src="assets/profile.png" alt="Lahiru Bandara Profile" loading="lazy" />
-        <div class="experience-badges">
-          <div class="badge">
-            <span class="number">2+</span>
-            <span class="text">Years<br>Experience</span>
-          </div>
-          <div class="badge">
-            <span class="number">10+</span>
-            <span class="text">Projects<br>Completed</span>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- Services Section Code -->
-    <section class="services section" id="services">
-      <h2 class="heading">My <span>Services</span></h2>
-
-      <div class="services-container">
-        <div class="services-box">
-          <i class="bx bx-code"></i>
-          <h3>Web Development</h3>
-          <p>
-            Creation of modern, responsive websites and web applications using the latest technologies.
-            Specializing in interactive UI elements, animations, and seamless user experiences.
-          </p>
-          <ul class="service-features">
-            <li><i class='bx bx-check'></i> Responsive Design</li>
-            <li><i class='bx bx-check'></i> Frontend Frameworks</li>
-            <li><i class='bx bx-check'></i> Performance Optimization</li>
-          </ul>
-          <a href="#contact" class="btn">Hire Me</a>
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My thoughts</span>
+                <h2 class="section-title">Latest Blog Posts</h2>
+                <p class="section-description">
+                    Sharing insights about web development, design trends, and my learning journey
+                </p>
+            </div>
+            
+            <!----
+            <div class="blog-grid">
+                <article class="blog-card featured">
+                    <div class="blog-image">
+                        <img src="assets/blog1.jpg" alt="React Best Practices" loading="lazy">
+                        <div class="blog-category">React</div>
+                    </div>
+                    <div class="blog-content">
+                        <time class="blog-date">March 15, 2024</time>
+                        <h3 class="blog-title">React Best Practices for Modern Web Development</h3>
+                        <p class="blog-excerpt">
+                            Exploring essential React patterns and practices that every developer should know 
+                            to build scalable and maintainable applications.
+                        </p>
+                        <div class="blog-meta">
+                            <span class="read-time">5 min read</span>
+                            <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/blog2.jpg" alt="CSS Grid vs Flexbox" loading="lazy">
+                        <div class="blog-category">CSS</div>
+                    </div>
+                    <div class="blog-content">
+                        <time class="blog-date">March 10, 2024</time>
+                        <h3 class="blog-title">CSS Grid vs Flexbox: When to Use What</h3>
+                        <p class="blog-excerpt">
+                            A comprehensive guide to understanding the differences between CSS Grid and 
+                            Flexbox and when to use each layout method.
+                        </p>
+                        <div class="blog-meta">
+                            <span class="read-time">4 min read</span>
+                            <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/blog3.jpg" alt="UI/UX Design Principles" loading="lazy">
+                        <div class="blog-category">Design</div>
+                    </div>
+                    <div class="blog-content">
+                        <time class="blog-date">March 5, 2024</time>
+                        <h3 class="blog-title">Essential UI/UX Design Principles</h3>
+                        <p class="blog-excerpt">
+                            Understanding the fundamental principles that make great user interfaces 
+                            and user experiences that users love.
+                        </p>
+                        <div class="blog-meta">
+                            <span class="read-time">6 min read</span>
+                            <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/blog4.jpg" alt="JavaScript ES6 Features" loading="lazy">
+                        <div class="blog-category">JavaScript</div>
+                    </div>
+                    <div class="blog-content">
+                        <time class="blog-date">February 28, 2024</time>
+                        <h3 class="blog-title">JavaScript ES6+ Features You Should Know</h3>
+                        <p class="blog-excerpt">
+                            Discover the most useful ES6+ features that will make your JavaScript 
+                            code more efficient and readable.
+                        </p>
+                        <div class="blog-meta">
+                            <span class="read-time">7 min read</span>
+                            <a href="#" class="read-more">Read More <i class='bx bx-right-arrow-alt'></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="blog-action">
+                <a href="#" class="btn btn-outline">View All Posts</a>
+            </div>
         </div>
+    </section>
+    -->
 
-        <div class="services-box">
-          <i class="bx bx-palette"></i>
-          <h3>UI/UX Design</h3>
-          <p>
-            Creating visually appealing and user-friendly interfaces that enhance user experience and drive engagement.
-            Focus on aesthetics, usability, and conversion optimization.
-          </p>
-          <ul class="service-features">
-            <li><i class='bx bx-check'></i> Wireframing & Prototyping</li>
-            <li><i class='bx bx-check'></i> User Research</li>
-            <li><i class='bx bx-check'></i> Interface Design</li>
-          </ul>
-          <a href="#contact" class="btn">Hire Me</a>
-        </div>
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-description">
+                    A collection of projects that showcase my skills and creativity
+                </p>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+                <button class="filter-btn" data-filter="ai/ml">AI/ML</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-category="web frontend">
+                    <div class="project-image">
+                        <img src="assets/project1.jpeg" alt="Authentication System" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="https://github.com/LAHI-RU/login_signup_with_react" target="_blank" class="project-link">
+                                    <i class='bx bxl-github'></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class='bx bx-link-external'></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Full Stack Authentication System</h3>
+                            <span class="project-type">Full Stack</span>
+                        </div>
+                        <p class="project-description">
+                            Complete MERN stack authentication system with secure user registration, 
+                            login, JWT tokens, and password reset functionality.
+                        </p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>JWT</span>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="services-box">
-          <i class="bx bxl-android"></i>
-          <h3>App Development</h3>
-          <p>
-            Development of cross-platform mobile applications with native-like performance and experience.
-            Skilled in React Native and modern mobile app architecture.
-          </p>
-          <ul class="service-features">
-            <li><i class='bx bx-check'></i> Cross-Platform Apps</li>
-            <li><i class='bx bx-check'></i> Progressive Web Apps</li>
-            <li><i class='bx bx-check'></i> App Performance</li>
-          </ul>
-          <a href="#contact" class="btn">Hire Me</a>
+                <div class="projects-grid">
+                <div class="project-card" data-category="web frontend">
+                    <div class="project-image">
+                        <img src="assets/project1.jpeg" alt="Django Responsive Website" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="https://github.com/LAHI-RU/Django5_Responsive_Website" target="_blank" class="project-link">
+                                    <i class='bx bxl-github'></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class='bx bx-link-external'></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Django Responsive Website</h3>
+                            <span class="project-type">Full Stack</span>
+                        </div>
+                        <p class="project-description">
+                            Complete Django 5 responsive website with CRUD operations, dynamic blog system, 
+                            contact form with email integration, and modern Bootstrap-powered UI design.
+                        </p>
+                        <div class="project-tech">
+                            <span>Django 5</span>
+                            <span>Bootstrap</span>
+                            <span>SQLite</span>
+                            <span>SMTP</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                <div class="project-card" data-category="web frontend">
+                    <div class="project-image">
+                        <img src="assets/project1.jpeg" alt="Task Manager REST API" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="https://github.com/LAHI-RU/Task-Manager-API" target="_blank" class="project-link">
+                                    <i class='bx bxl-github'></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class='bx bx-link-external'></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Task Manager REST API</h3>
+                            <span class="project-type">Backend</span>
+                        </div>
+                        <p class="project-description">
+                            Comprehensive RESTful API for task management with CRUD operations, advanced filtering, 
+                            sorting capabilities, and modern HTML interface for testing endpoints.
+                        </p>
+                        <div class="project-tech">
+                            <span>Node.js</span>
+                            <span>Express</span>
+                            <span>MongoDB</span>
+                            <span>Mongoose</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="ai/ml">
+                    <div class="project-image">
+                        <img src="assets/project2.jpeg" alt="Black Pepper leaf Disease Detection" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="https://github.com/LAHI-RU/Black-Pepper-Leaf-Disease-Detection" target="_blank" class="project-link">
+                                    <i class='bx bxl-github'></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class='bx bx-link-external'></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Black Pepper leaf Disease Detection</h3>
+                            <span class="project-type">AI/ML + Full Stack</span>
+                        </div>
+                        <p class="project-description">
+                            Intelligent agricultural solution using ResNet18 deep learning model to detect black pepper 
+                            leaf diseases with confidence scoring and eco-friendly treatment recommendations.
+                        </p>
+                        <div class="project-tech">
+                            <span>PyTorch</span>
+                            <span>FastAPI</span>
+                            <span>React</span>
+                            <span>ResNet18</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web design">
+                    <div class="project-image">
+                        <img src="assets/project2.jpeg" alt="Portfolio Website" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="https://github.com/LAHI-RU/portfolio_website" target="_blank" class="project-link">
+                                    <i class='bx bxl-github'></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class='bx bx-link-external'></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Portfolio Website</h3>
+                            <span class="project-type">Frontend</span>
+                        </div>
+                        <p class="project-description">
+                            Responsive portfolio website with modern design, smooth animations, 
+                            and optimized performance for seamless user experience.
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+                
+                <div class="project-card" data-category="web design">
+                    <div class="project-image">
+                        <img src="assets/project3.png" alt="Hotel Booking Landing Page" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="https://github.com/LAHI-RU/responsive_landing_page" target="_blank" class="project-link">
+                                    <i class='bx bxl-github'></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class='bx bx-link-external'></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Hotel Booking Landing</h3>
+                            <span class="project-type">Frontend</span>
+                        </div>
+                        <p class="project-description">
+                            Elegant hotel booking landing page with intuitive navigation, 
+                            clean design, and conversion-focused layout.
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Projects Section Code -->
-    <section class="projects section" id="projects">
-      <h2 class="heading">My <span>Projects</span></h2>
-
-      <div class="project-filter">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="app">App</button>
-        <button class="filter-btn" data-filter="design">Design</button>
-      </div>
-
-      <div class="projects-container">
-        <!-- Project 1 -->
-        <div class="project-item" data-category="web">
-          <img src="assets/project1.jpeg" alt="Authentication System Project" loading="lazy" />
-          <h3>Authentication System</h3>
-          <p>
-            Full-stack Authentication System: Developed using the MERN stack
-            (MongoDB, Express.js, React, Node.js). It includes user
-            registration, login, and logout functionalities, secure password
-            storage with Bcrypt, protected routes, JWT authentication, and
-            password reset with Nodemailer.
-          </p>
-          <div class="project-tags">
-            <span>React</span>
-            <span>Node.js</span>
-            <span>MongoDB</span>
-          </div>
-          <a
-            href="https://github.com/LAHI-RU/login_signup_with_react"
-            target="_blank"
-            class="btn"
-            >GitHub</a
-          >
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get in touch</span>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-description">
+                    Ready to bring your ideas to life? Let's discuss your next project
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>lahiiru.dananjaya@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class='bx bx-phone'></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>+94 77 2376 081</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class='bx bx-map'></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Matale, Sri Lanka</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span>Send Message</span>
+                        <i class='bx bx-send'></i>
+                    </button>
+                    
+                    <div class="form-status" id="formStatus"></div>
+                </form>
+            </div>
         </div>
-
-        <!-- Project 2 -->
-        <div class="project-item" data-category="web">
-          <img src="assets/project2.jpeg" alt="Portfolio Website Project" loading="lazy" />
-          <h3>Portfolio Website</h3>
-          <p>
-            Personal portfolio website: Hosted on Netlify, showcasing skills in
-            HTML, CSS, and JavaScript. Features mobile-first responsive design,
-            interactive elements, minimalist aesthetic, intuitive navigation,
-            and optimized performance for a seamless user experience.
-          </p>
-          <div class="project-tags">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-          </div>
-          <a
-            href="https://github.com/LAHI-RU/portfolio_website"
-            target="_blank"
-            class="btn"
-            >GitHub</a
-          >
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-item" data-category="web design">
-          <img src="assets/project3.png" alt="Responsive Landing Page Project" loading="lazy" />
-          <h3>Responsive Landing Page</h3>
-          <p>
-            Responsive Hotel Booking Landing Page: Developed for booking hotels
-            in the USA using HTML5, CSS3, and JavaScript. Features full
-            responsiveness, intuitive user interface, seamless navigation, and a
-            sleek, professional light theme.
-          </p>
-          <div class="project-tags">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>Responsive</span>
-          </div>
-          <a
-            href="https://github.com/LAHI-RU/responsive_landing_page"
-            target="_blank"
-            class="btn"
-            >GitHub</a
-          >
-        </div>
-        
-        <!-- Project 4 -->
-        <div class="project-item" data-category="web app">
-          <img src="assets/project4.jpg" alt="Task Management App Project" loading="lazy" />
-          <h3>Task Management App</h3>
-          <p>
-            React-based task management application with drag-and-drop functionality.
-            Features include task categorization, priority levels, deadlines, 
-            and progress tracking. Built with React, Redux for state management,
-            and styled with Tailwind CSS for a modern, intuitive interface.
-          </p>
-          <div class="project-tags">
-            <span>React</span>
-            <span>Redux</span>
-            <span>Tailwind CSS</span>
-          </div>
-          <a
-            href="#"
-            target="_blank"
-            class="btn"
-            >GitHub</a
-          >
-        </div>
-        
-        <!-- Project 5 -->
-        <div class="project-item" data-category="web design">
-          <img src="assets/project5.jpg" alt="E-commerce Product Page Project" loading="lazy" />
-          <h3>E-commerce Product Page</h3>
-          <p>
-            Interactive e-commerce product page with advanced features like image
-            galleries, product variants, dynamic pricing, and cart functionality.
-            Implemented using HTML5, CSS3, and vanilla JavaScript with a focus on
-            accessibility and performance optimization.
-          </p>
-          <div class="project-tags">
-            <span>JavaScript</span>
-            <span>CSS3</span>
-            <span>E-commerce</span>
-          </div>
-          <a
-            href="#"
-            target="_blank"
-            class="btn"
-            >GitHub</a
-          >
-        </div>
-        
-        <!-- Project 6 -->
-        <div class="project-item" data-category="web app">
-          <img src="assets/project6.jpg" alt="Weather Dashboard Project" loading="lazy" />
-          <h3>Weather Dashboard</h3>
-          <p>
-            Modern weather application that provides real-time weather data for any location.
-            Features a clean UI with detailed forecasts, interactive maps, and historical
-            weather trends. Built with React and integrates with OpenWeatherMap API.
-          </p>
-          <div class="project-tags">
-            <span>React</span>
-            <span>API Integration</span>
-            <span>Weather Data</span>
-          </div>
-          <a
-            href="#"
-            target="_blank"
-            class="btn"
-            >GitHub</a
-          >
-        </div>
-      </div>
-
-      <div class="projects-pagination">
-        <button class="pagination-btn active" data-page="1">1</button>
-        <button class="pagination-btn" data-page="2">2</button>
-      </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials section">
-      <h2 class="heading">Client <span>Feedback</span></h2>
-      
-      <div class="testimonial-wrapper">
-        <div class="testimonial-container">
-          <!-- Testimonial 1 -->
-          <div class="testimonial-card">
-            <div class="testimonial-quote">
-              <i class='bx bxs-quote-alt-left'></i>
-            </div>
-            <p class="testimonial-text">
-              "Lahiru created an exceptional website for my business. His attention to detail and responsive design skills really made the project stand out. I highly recommend his services to anyone looking for quality web development."
-            </p>
-            <div class="testimonial-author">
-              <img src="assets/client1.jpg" alt="Client 1" loading="lazy">
-              <div>
-                <h4>User 01</h4>
-                <p>Business Owner</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Testimonial 2 -->
-          <div class="testimonial-card">
-            <div class="testimonial-quote">
-              <i class='bx bxs-quote-alt-left'></i>
-            </div>
-            <p class="testimonial-text">
-              "Working with Lahiru was a pleasure. He understood our requirements perfectly and delivered a stunning website that exceeded our expectations. His technical skills and creativity are truly impressive."
-            </p>
-            <div class="testimonial-author">
-              <img src="assets/client2.jpg" alt="Client 2" loading="lazy">
-              <div>
-                <h4>User 02</h4>
-                <p>Software Engineer</p>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Testimonial 3 -->
-          <div class="testimonial-card">
-            <div class="testimonial-quote">
-              <i class='bx bxs-quote-alt-left'></i>
-            </div>
-            <p class="testimonial-text">
-              "I've worked with several developers before, but Lahiru's work stands out. His code is clean, well-structured, and the final product was exactly what we needed. I'll definitely work with him again."
-            </p>
-            <div class="testimonial-author">
-              <img src="assets/client3.jpg" alt="Client 3" loading="lazy">
-              <div>
-                <h4>User 03</h4>
-                <p>Tech Startup Founder</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="testimonial-dots">
-          <span class="dot active" data-slide="0"></span>
-          <span class="dot" data-slide="1"></span>
-          <span class="dot" data-slide="2"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section Code -->
-    <section class="contact section" id="contact">
-      <h2 class="heading">Contact <span>Me</span></h2>
-
-      <div class="contact-container">
-        <div class="contact-info">
-          <div class="contact-card">
-            <i class='bx bx-envelope'></i>
-            <h3>Email</h3>
-            <p>lahiiru.dananjaya@gmail.com</p>
-          </div>
-          <div class="contact-card">
-            <i class='bx bx-phone'></i>
-            <h3>Phone</h3>
-            <p>+94 772 376 081</p>
-          </div>
-          <div class="contact-card">
-            <i class='bx bx-map'></i>
-            <h3>Location</h3>
-            <p>Matale, Sri Lanka</p>
-          </div>
-        </div>
-
-        <form id="contact-form" class="contact-form">
-          <div class="input-box">
-            <input type="text" id="name" placeholder="Full Name" required />
-            <input type="email" id="email" name="Email" placeholder="Email Address" required />
-          </div>
-
-          <div class="input-box">
-            <input type="tel" id="phone" placeholder="Phone Number" />
-            <input type="text" id="subject" placeholder="Email Subject" required />
-          </div>
-
-          <textarea
-            name="message"
-            id="message"
-            cols="30"
-            rows="10"
-            placeholder="Your Message"
-            required
-          ></textarea>
-          <button type="submit" class="btn form-btn">
-            <span>Send Message</span>
-            <i class='bx bx-send'></i>
-          </button>
-          <div id="form-status"></div>
-        </form>
-      </div>
-    </section>
-
-    <!-- Footer Section Code -->
+    <!-- Footer -->
     <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-about">
-          <h3>Lahiru Bandara</h3>
-          <p>A passionate Frontend Developer and UI/UX Designer creating modern and user-friendly web experiences.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <span class="logo-text">Lahiru Bandara</span>
+                        <span class="logo-dot">.</span>
+                    </div>
+                    <p>Crafting exceptional digital experiences with passion and precision.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <div class="footer-social">
+                            <a href="https://www.linkedin.com/in/lahirubandaara" target="_blank">
+                                <i class='bx bxl-linkedin'></i>
+                            </a>
+                            <a href="https://github.com/LAHI-RU" target="_blank">
+                                <i class='bx bxl-github'></i>
+                            </a>
+                            <a href="https://facebook.com/lahiru.bandara.1428921" target="_blank">
+                                <i class='bx bxl-facebook'></i>
+                            </a>
+                            <a href="https://www.instagram.com/l_a_h_i_r_u._" target="_blank">
+                                <i class='bx bxl-instagram'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lahiru Bandara. All rights reserved.</p>
+            </div>
         </div>
-        
-        <div class="footer-links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-social">
-          <h3>Connect With Me</h3>
-          <div class="social">
-            <a href="https://www.linkedin.com/in/lahirubandaara" target="_blank" aria-label="LinkedIn Profile">
-              <i class="bx bxl-linkedin"></i>
-            </a>
-            <a href="https://github.com/LAHI-RU" target="_blank" aria-label="GitHub Profile">
-              <i class="bx bxl-github"></i>
-            </a>
-            <a href="https://facebook.com/lahiru.bandara.1428921" target="_blank" aria-label="Facebook Profile">
-              <i class="bx bxl-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/l_a_h_i_r_u._" target="_blank" aria-label="Instagram Profile">
-              <i class="bx bxl-instagram"></i>
-            </a>
-            <a href="https://wa.link/oio8hv" target="_blank" aria-label="WhatsApp Contact">
-              <i class="bx bxl-whatsapp"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="copyright">
-        <p>&copy; 2025 Lahiru Bandara - All Rights Reserved</p>
-      </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <div class="back-to-top">
-      <i class='bx bx-up-arrow-alt'></i>
-    </div>
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class='bx bx-up-arrow-alt'></i>
+    </button>
 
-    <!-- Theme Toggle Button -->
-    <div class="theme-toggle">
-      <i class='bx bx-moon'></i>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="script.js"></script>
-    
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Lahiru Bandara",
-        "url": "https://lahirubandara.netlify.app",
-        "jobTitle": "Frontend Developer",
-        "alumniOf": "Eastern University of Sri Lanka",
-        "knowsAbout": ["Web Development", "UI/UX Design", "Frontend Development"],
-        "sameAs": [
-          "https://www.linkedin.com/in/lahirubandaara",
-          "https://github.com/LAHI-RU"
-        ]
-      }
-    </script>
-  </body>
+</body>
 </html>
-```

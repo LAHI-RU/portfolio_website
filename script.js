@@ -1,376 +1,508 @@
-// Menu Toggle
-let menu = document.querySelector("#menu-icon");
-let navbar = document.querySelector(".navbar");
-
-menu.onclick = () => {
-  menu.classList.toggle("bx-x");
-  navbar.classList.toggle("active");
-};
-
-// Close menu on scroll
-window.onscroll = () => {
-  menu.classList.remove("bx-x");
-  navbar.classList.remove("active");
-  
-  // Show or hide back to top button
-  const backToTop = document.querySelector('.back-to-top');
-  if (window.scrollY > 300) {
-    backToTop.classList.add('show');
-  } else {
-    backToTop.classList.remove('show');
-  }
-  
-  // Reveal sections on scroll
-  revealSections();
-};
-
-// Typed.js initialization
-const typed = new Typed(".multiple-text", {
-  strings: ["Full-stack Developer", "UI/UX Designer", "Web Designer"],
-  typeSpeed: 80,
-  backSpeed: 80,
-  backDelay: 1200,
-  loop: true,
+// Initialize the portfolio
+document.addEventListener('DOMContentLoaded', function() {
+    initializePortfolio();
 });
 
-// Preloader
-window.addEventListener('load', () => {
-  const preloader = document.querySelector('.preloader');
-  setTimeout(() => {
-    preloader.classList.add('hide');
-    
-    // Reveal initial visible sections
-    revealSections();
-  }, 1000);
-});
+// Main initialization function
+function initializePortfolio() {
+    // Initialize all components
+    initLoader();
+    initNavigation();
+    initThemeToggle();
+    initCustomCursor();
+    initAnimations();
+    initTabs();
+    initProjectFilter();
+    initContactForm();
+    initScrollToTop();
+    initScrollIndicator();
+    initParallax();
+}
 
-// About Section Tabs
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
-
-tabBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const tabId = btn.dataset.tab;
+// Loader functionality
+function initLoader() {
+    const loader = document.querySelector('.loader-wrapper');
     
-    // Remove active class from all buttons and contents
-    tabBtns.forEach(btn => btn.classList.remove('active'));
-    tabContents.forEach(content => content.classList.remove('active'));
-    
-    // Add active class to clicked button and corresponding content
-    btn.classList.add('active');
-    document.querySelector(`.${tabId}-tab`).classList.add('active');
-  });
-});
-
-// Project Filtering
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectItems = document.querySelectorAll('.project-item');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Remove active class from all buttons
-    filterBtns.forEach(btn => btn.classList.remove('active'));
-    
-    // Add active class to clicked button
-    btn.classList.add('active');
-    
-    const filterValue = btn.dataset.filter;
-    
-    projectItems.forEach(item => {
-      if (filterValue === 'all' || item.dataset.category.includes(filterValue)) {
-        item.style.display = 'block';
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        // Start entrance animations after loader disappears
         setTimeout(() => {
-          item.style.opacity = '1';
-          item.style.transform = 'translateY(0)';
-        }, 100);
-      } else {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-          item.style.display = 'none';
+            animateOnLoad();
         }, 300);
-      }
+    }, 1500);
+}
+
+// Navigation functionality
+function initNavigation() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Toggle mobile menu
+    navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
-  });
-});
+    
+    // Close menu when clicking on nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Active link highlighting on scroll
+    window.addEventListener('scroll', updateActiveNavLink);
+    
+    // Smooth scroll for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
 
-// Pagination
-const paginationBtns = document.querySelectorAll('.pagination-btn');
-const projectsContainer = document.querySelector('.projects-container');
-const projectsPerPage = 3;
-let currentPage = 1;
+// Update active navigation link based on scroll position
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.scrollY >= sectionTop - 100) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
 
-// Function to show projects for current page
-function showProjects(page) {
-  const startIndex = (page - 1) * projectsPerPage;
-  const endIndex = startIndex + projectsPerPage;
-  
-  // Hide all projects first
-  projectItems.forEach((item, index) => {
-    if (index >= startIndex && index < endIndex) {
-      item.style.display = 'block';
-      setTimeout(() => {
-        item.style.opacity = '1';
-        item.style.transform = 'translateY(0)';
-      }, 100 * (index - startIndex));
-    } else {
-      item.style.opacity = '0';
-      item.style.transform = 'translateY(20px)';
-      setTimeout(() => {
-        item.style.display = 'none';
-      }, 300);
+// Theme toggle functionality
+function initThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
     }
-  });
-}
-
-// Initialize pagination
-paginationBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Update active class
-    paginationBtns.forEach(btn => btn.classList.remove('active'));
-    btn.classList.add('active');
     
-    // Show projects for clicked page
-    currentPage = parseInt(btn.dataset.page);
-    showProjects(currentPage);
-  });
-});
-
-// Testimonial Slider
-const testimonialContainer = document.querySelector('.testimonial-container');
-const testimonialDots = document.querySelectorAll('.dot');
-let currentSlide = 0;
-const slideCount = testimonialDots.length;
-
-// Function to update slider
-function updateSlider() {
-  testimonialContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-  
-  // Update active dot
-  testimonialDots.forEach((dot, index) => {
-    dot.classList.toggle('active', index === currentSlide);
-  });
-}
-
-// Event listeners for dots
-testimonialDots.forEach((dot, index) => {
-  dot.addEventListener('click', () => {
-    currentSlide = index;
-    updateSlider();
-  });
-});
-
-// Auto slide testimonials every 5 seconds
-setInterval(() => {
-  currentSlide = (currentSlide + 1) % slideCount;
-  updateSlider();
-}, 5000);
-
-// Back to Top Button
-const backToTop = document.querySelector('.back-to-top');
-backToTop.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-});
-
-// Theme Toggle
-const themeToggle = document.querySelector('.theme-toggle');
-const body = document.body;
-
-// Check if user has a theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-  body.classList.add('light-mode');
-  themeToggle.querySelector('i').classList.replace('bx-moon', 'bx-sun');
-}
-
-themeToggle.addEventListener('click', () => {
-  body.classList.toggle('light-mode');
-  
-  // Toggle icon
-  const icon = themeToggle.querySelector('i');
-  if (body.classList.contains('light-mode')) {
-    icon.classList.replace('bx-moon', 'bx-sun');
-    localStorage.setItem('theme', 'light');
-  } else {
-    icon.classList.replace('bx-sun', 'bx-moon');
-    localStorage.setItem('theme', 'dark');
-  }
-});
-
-// Enhanced scroll reveal animation
-function revealSections() {
-  const sections = document.querySelectorAll('.section');
-  const windowHeight = window.innerHeight;
-  const revealPoint = 150;
-  
-  sections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
     
-    if (sectionTop < windowHeight - revealPoint) {
-      section.classList.add('show');
-      
-      // Reveal items within section with staggered delay
-      const items = section.querySelectorAll('.skill-card, .services-box, .project-item, .contact-card');
-      items.forEach((item, index) => {
+    function updateThemeIcon(theme) {
+        if (theme === 'light') {
+            icon.className = 'bx bx-sun';
+        } else {
+            icon.className = 'bx bx-moon';
+        }
+    }
+}
+
+// Custom cursor functionality
+function initCustomCursor() {
+    const cursor = document.querySelector('.cursor');
+    const cursorFollower = document.querySelector('.cursor-follower');
+    
+    if (!cursor || !cursorFollower) return;
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let followerX = 0;
+    let followerY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+    });
+    
+    // Smooth cursor follower animation
+    function animateCursorFollower() {
+        followerX += (mouseX - followerX) * 0.1;
+        followerY += (mouseY - followerY) * 0.1;
+        
+        cursorFollower.style.left = followerX + 'px';
+        cursorFollower.style.top = followerY + 'px';
+        
+        requestAnimationFrame(animateCursorFollower);
+    }
+    
+    animateCursorFollower();
+    
+    // Hover effects for interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .tab-btn, .filter-btn, .project-card');
+    
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('cursor-hover');
+            cursorFollower.classList.add('cursor-hover');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('cursor-hover');
+            cursorFollower.classList.remove('cursor-hover');
+        });
+    });
+}
+
+// Tab functionality
+function initTabs() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabName = button.dataset.tab;
+            
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            const targetContent = document.querySelector(`.${tabName}-tab`);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
+    });
+}
+
+// Project filter functionality
+function initProjectFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filterValue = button.dataset.filter;
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter projects
+            projectCards.forEach(card => {
+                const categories = card.dataset.category.split(' ');
+                
+                if (filterValue === 'all' || categories.includes(filterValue)) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
+// Contact form functionality
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    
+    if (!form) return;
+    
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message')
+        };
+        
+        // Validate form
+        if (!validateForm(data)) {
+            showFormStatus('Please fill in all required fields.', 'error');
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Sending...</span>';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission (replace with actual API call)
         setTimeout(() => {
-          item.style.opacity = '1';
-          item.style.transform = 'translateY(0)';
-        }, 100 * index);
-      });
-    }
-  });
-}
-
-// Handle active navigation links on scroll
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-link');
-  
-  let current = '';
-  
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (window.scrollY >= sectionTop - 200) {
-      current = section.getAttribute('id');
-    }
-  });
-  
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').substring(1) === current) {
-      link.classList.add('active');
-    }
-  });
-});
-
-// Form submission
-const contactForm = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status');
-
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  
-  // Get form data
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-  
-  // Simple form validation
-  if (!name || !email || !message) {
-    formStatus.textContent = 'Please fill in all required fields.';
-    formStatus.style.color = '#ff5252';
-    return;
-  }
-  
-  // Email validation with regex
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    formStatus.textContent = 'Please enter a valid email address.';
-    formStatus.style.color = '#ff5252';
-    return;
-  }
-  
-  // Simulate form submission
-  formStatus.textContent = 'Sending...';
-  
-  // In a real application, you'd send the form data to a server here
-  // For demo purposes, we'll just simulate a successful submission after a delay
-  setTimeout(() => {
-    contactForm.reset();
-    formStatus.textContent = 'Message sent successfully!';
-    formStatus.style.color = '#64ffda';
-    
-    setTimeout(() => {
-      formStatus.textContent = '';
-    }, 5000);
-  }, 1500);
-});
-
-// Custom cursor effect
-document.addEventListener('mousemove', function(e) {
-  const cursorDot = document.querySelector('.cursor-dot');
-  const cursorOutline = document.querySelector('.cursor-outline');
-  
-  if (cursorDot && cursorOutline) {
-    cursorDot.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    
-    // Add slight delay to outline for effect
-    setTimeout(() => {
-      cursorOutline.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-    }, 50);
-  }
-});
-
-// Change cursor size on interactive elements
-const interactiveElements = document.querySelectorAll('a, button, .btn, .filter-btn, .tab-btn, .pagination-btn, .dot');
-interactiveElements.forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    const cursorOutline = document.querySelector('.cursor-outline');
-    if (cursorOutline) {
-      cursorOutline.style.width = '60px';
-      cursorOutline.style.height = '60px';
-      cursorOutline.style.opacity = '0.5';
-    }
-  });
-  
-  el.addEventListener('mouseleave', () => {
-    const cursorOutline = document.querySelector('.cursor-outline');
-    if (cursorOutline) {
-      cursorOutline.style.width = '40px';
-      cursorOutline.style.height = '40px';
-      cursorOutline.style.opacity = '1';
-    }
-  });
-});
-
-// Skills cards animation
-function initSkillCards() {
-  const skillCards = document.querySelectorAll('.skill-card');
-  
-  skillCards.forEach(card => {
-    card.addEventListener('mouseenter', (e) => {
-      const icons = card.querySelectorAll('i');
-      icons.forEach(icon => {
-        icon.style.transform = 'scale(1.1)';
-        icon.style.transition = 'transform 0.3s ease';
-      });
+            showFormStatus('Message sent successfully! I\'ll get back to you soon.', 'success');
+            form.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 1500);
     });
     
-    card.addEventListener('mouseleave', (e) => {
-      const icons = card.querySelectorAll('i');
-      icons.forEach(icon => {
-        icon.style.transform = 'scale(1)';
-      });
-    });
-  });
+    function validateForm(data) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        return data.name.trim() && 
+               data.email.trim() && 
+               emailRegex.test(data.email) && 
+               data.subject.trim() && 
+               data.message.trim();
+    }
+    
+    function showFormStatus(message, type) {
+        formStatus.textContent = message;
+        formStatus.className = `form-status ${type}`;
+        
+        setTimeout(() => {
+            formStatus.className = 'form-status';
+        }, 5000);
+    }
 }
 
-// Initialize animated items for scroll reveal
+// Scroll to top functionality
+function initScrollToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    if (!backToTopBtn) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Scroll indicator functionality
+function initScrollIndicator() {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    
+    if (!scrollIndicator) return;
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            scrollIndicator.style.opacity = '0';
+        } else {
+            scrollIndicator.style.opacity = '1';
+        }
+    });
+}
+
+// Parallax effect for floating elements
+function initParallax() {
+    const floatingElements = document.querySelectorAll('.float-item');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        
+        floatingElements.forEach(element => {
+            const speed = element.dataset.speed || 0.5;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+    });
+}
+
+// Intersection Observer for animations
+function initAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.blog-card, .project-card, .skill-category, .education-item, .contact-item');
+    animateElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Initial load animations
+function animateOnLoad() {
+    const titleLines = document.querySelectorAll('.title-line');
+    const heroElements = document.querySelectorAll('.hero-description, .hero-stats, .hero-actions, .hero-social');
+    
+    // Animate title lines
+    titleLines.forEach((line, index) => {
+        setTimeout(() => {
+            line.style.animation = `slideUp 0.8s ease ${index * 0.2}s forwards`;
+        }, 500);
+    });
+    
+    // Animate other hero elements
+    heroElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, 1000 + (index * 200));
+    });
+}
+
+// Smooth scroll for hero scroll indicator
 document.addEventListener('DOMContentLoaded', () => {
-  const animatedItems = document.querySelectorAll('.skill-card, .services-box, .project-item, .contact-card');
-  animatedItems.forEach(item => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(20px)';
-    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  });
-  
-  // Initialize skill cards
-  initSkillCards();
-  
-  // Initialize projects display
-  showProjects(currentPage);
-  
-  // Initialize testimonial slider
-  updateSlider();
-  
-  // Initialize first visible section
-  const firstSection = document.querySelector('#home');
-  firstSection.classList.add('show');
-  
-  // Run initial scroll-based functions
-  revealSections();
+    const heroScroll = document.querySelector('.hero-scroll');
+    
+    if (heroScroll) {
+        heroScroll.addEventListener('click', () => {
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
 });
+
+// Add CSS for initial hidden state
+const initialStyles = `
+    .hero-description,
+    .hero-stats,
+    .hero-actions,
+    .hero-social {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease;
+    }
+    
+    .blog-card,
+    .project-card,
+    .skill-category,
+    .education-item,
+    .contact-item {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+    }
+    
+    .animate {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+`;
+
+// Inject initial styles
+const styleSheet = document.createElement('style');
+styleSheet.textContent = initialStyles;
+document.head.appendChild(styleSheet);
+
+// Utility functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// Optimize scroll events
+window.addEventListener('scroll', throttle(() => {
+    updateActiveNavLink();
+}, 100));
+
+// Add resize event listener for responsive handling
+window.addEventListener('resize', debounce(() => {
+    // Recalculate positions or update layout if needed
+    console.log('Window resized');
+}, 250));
+
+// Page visibility API for performance optimization
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        // Pause animations when tab is not visible
+        document.body.style.animationPlayState = 'paused';
+    } else {
+        // Resume animations when tab becomes visible
+        document.body.style.animationPlayState = 'running';
+    }
+});
+
+// Preload images for better performance
+function preloadImages() {
+    const images = [
+        'assets/profile1.png',
+        'assets/profile.png',
+        'assets/blog1.jpg',
+        'assets/blog2.jpg',
+        'assets/blog3.jpg',
+        'assets/blog4.jpg',
+        'assets/project1.jpeg',
+        'assets/project2.jpeg',
+        'assets/project3.png',
+        'assets/project4.jpg'
+    ];
+    
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
+// Initialize image preloading
+preloadImages();
