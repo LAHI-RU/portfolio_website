@@ -1526,3 +1526,77 @@ body {
         font-size: 1.8rem;
     }
 }
+
+/* Add this to your existing CSS - Mobile Hero Image Fix */
+
+@media (max-width: 1024px) {
+    .hero-visual {
+        margin-top: 4rem; /* Add top margin to prevent cutoff */
+        padding: 2rem 0; /* Add vertical padding */
+    }
+    
+    .hero-image {
+        width: 300px;
+        height: 300px;
+        margin: 2rem auto; /* Center and add margin */
+    }
+    
+    .floating-elements {
+        top: 2rem; /* Adjust floating elements position */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-visual {
+        margin-top: 3rem;
+        padding: 1.5rem 0;
+    }
+    
+    .hero-image {
+        width: 280px;
+        height: 280px;
+        margin: 1.5rem auto;
+    }
+    
+    .floating-elements {
+        top: 1.5rem;
+    }
+    
+    /* Adjust floating element positions for mobile */
+    .float-item:nth-child(1) {
+        top: 5%;
+        left: 5%;
+    }
+    
+    .float-item:nth-child(2) {
+        top: 10%;
+        right: 5%;
+    }
+    
+    .float-item:nth-child(3) {
+        bottom: 25%;
+        left: 5%;
+    }
+    
+    .float-item:nth-child(4) {
+        bottom: 5%;
+        right: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-visual {
+        margin-top: 2rem;
+        padding: 1rem 0;
+    }
+    
+    .hero-image {
+        width: 250px;
+        height: 250px;
+        margin: 1rem auto;
+    }
+    
+    .floating-elements {
+        top: 1rem;
+    }
+}
