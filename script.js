@@ -200,10 +200,14 @@ function initTabs() {
     });
 }
 
-// Project filter functionality
+// UPDATED: Project filter functionality with DOM Reordering
 function initProjectFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
+    const projectsGrid = document.querySelector('.projects-grid');
+    
+    // Store original order of project cards
+    const originalCards = Array.from(projectCards);
     
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -213,24 +217,56 @@ function initProjectFilter() {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
             
-            // Filter projects
+            // Add filtering class to grid for animation state
+            projectsGrid.classList.add('filtering');
+            
+            // First, fade out all cards
             projectCards.forEach(card => {
-                const categories = card.dataset.category.split(' ');
-                
-                if (filterValue === 'all' || categories.includes(filterValue)) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 100);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px) scale(0.95)';
             });
+            
+            // After fade out animation, filter and reflow
+            setTimeout(() => {
+                let visibleCards = [];
+                
+                // Determine which cards should be visible
+                originalCards.forEach(card => {
+                    const categories = card.dataset.category.split(' ');
+                    
+                    if (filterValue === 'all' || categories.includes(filterValue)) {
+                        visibleCards.push(card);
+                    }
+                });
+                
+                // Remove all cards from grid temporarily
+                while (projectsGrid.firstChild) {
+                    projectsGrid.removeChild(projectsGrid.firstChild);
+                }
+                
+                // Add back only visible cards in order
+                visibleCards.forEach(card => {
+                    projectsGrid.appendChild(card);
+                    // Reset styles for proper reflow
+                    card.style.display = 'block';
+                });
+                
+                // Animate visible cards back in with stagger effect
+                setTimeout(() => {
+                    visibleCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0) scale(1)';
+                        }, index * 100); // Stagger animation by 100ms
+                    });
+                    
+                    // Remove filtering class after all animations complete
+                    setTimeout(() => {
+                        projectsGrid.classList.remove('filtering');
+                    }, visibleCards.length * 100 + 300);
+                }, 50);
+                
+            }, 300); // Wait for fade out to complete
         });
     });
 }
@@ -427,6 +463,20 @@ const initialStyles = `
     .animate {
         opacity: 1 !important;
         transform: translateY(0) !important;
+    }
+    
+    /* Enhanced project filtering styles */
+    .projects-grid {
+        transition: all 0.3s ease;
+    }
+    
+    .projects-grid.filtering {
+        pointer-events: none;
+    }
+    
+    .project-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: opacity, transform;
     }
 `;
 
