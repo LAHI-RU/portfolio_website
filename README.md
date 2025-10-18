@@ -85,27 +85,6 @@ portfolio_website/
 3. **Colors**: Modify CSS custom properties in `style.css`
 4. **Projects**: Add/edit project data in the projects section
 
-### Adding New Projects
-
-```html
-<div class="project-card" data-category="web frontend">
-    <div class="project-image">
-        <img src="assets/new-project.png" alt="Project Name">
-        <div class="project-overlay">
-            <div class="project-actions">
-                <a href="github-link" target="_blank" class="project-link">
-                    <i class='bx bxl-github'></i>
-                </a>
-                <a href="live-demo-link" class="project-link">
-                    <i class='bx bx-link-external'></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="project-content">
-        <!-- Project details -->
-    </div>
-</div>
 ```
 
 ## 🎨 Color Scheme
@@ -138,13 +117,6 @@ The website uses a carefully crafted color palette:
 - **Preloading**: Critical resources preloaded for faster initial load
 - **Efficient Animations**: Hardware-accelerated CSS animations
 - **Debounced Events**: Optimized scroll and resize handlers
-
-## 🌐 Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
 
 ## 📄 License
 
