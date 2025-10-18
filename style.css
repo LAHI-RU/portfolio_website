@@ -68,13 +68,13 @@ body {
 /* Light Mode Variables */
 [data-theme="light"] {
     --bg-color: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-tertiary: #f1f5f9;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #ffffff;
     --bg-card: #ffffff;
     
-    --text-color: #1e293b;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
+    --text-color: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #475569;
     
     --border-color: #e2e8f0;
     --border-light: #cbd5e1;
@@ -131,7 +131,46 @@ body {
     -webkit-background-clip: unset;
     background-clip: unset;
     -webkit-text-fill-color: unset;
-    color: #1e293b;
+    color: #0f172a;
+    font-weight: 800;
+}
+
+/* Light mode hero title */
+[data-theme="light"] .title-line {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: #0f172a;
+}
+
+/* Light mode cards with subtle borders and backgrounds */
+[data-theme="light"] .blog-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .contact-form,
+[data-theme="light"] .experience-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .blog-card:hover,
+[data-theme="light"] .project-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Light mode form inputs */
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group textarea {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    color: #0f172a;
+}
+
+[data-theme="light"] .form-group input::placeholder,
+[data-theme="light"] .form-group textarea::placeholder {
+    color: #64748b;
 }
 
 .section-description {
@@ -1207,7 +1246,7 @@ body {
 /* Footer */
 .footer {
     background: var(--bg-secondary);
-    padding: 4rem 0 2rem;
+    padding: 2rem 0;
     border-top: 1px solid var(--border-color);
 }
 
@@ -1237,6 +1276,10 @@ body {
 .footer-links {
     display: flex;
     gap: 4rem;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
 }
 
 .footer-section h4 {
@@ -1287,6 +1330,11 @@ body {
     background: var(--primary-color);
     color: white;
     transform: translateY(-2px);
+}
+
+.footer-rights {
+    margin-top: 1rem;
+    margin-bottom: 0;
 }
 
 .footer-bottom {

@@ -278,6 +278,10 @@ function initContactForm() {
     
     if (!form) return;
     
+    // Initialize EmailJS with your Public Key
+    // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+    emailjs.init('YOUR_PUBLIC_KEY');
+    
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         
@@ -301,13 +305,27 @@ function initContactForm() {
         submitBtn.innerHTML = '<span>Sending...</span>';
         submitBtn.disabled = true;
         
-        // Simulate form submission (replace with actual API call)
-        setTimeout(() => {
+        // Send email using EmailJS
+        // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            from_name: data.name,
+            from_email: data.email,
+            subject: data.subject,
+            message: data.message,
+            to_email: 'lahiiru.dananjaya@gmail.com'
+        })
+        .then(() => {
             showFormStatus('Message sent successfully! I\'ll get back to you soon.', 'success');
             form.reset();
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-        }, 1500);
+        })
+        .catch((error) => {
+            console.error('EmailJS Error:', error);
+            showFormStatus('Failed to send message. Please try again or contact me directly.', 'error');
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
     });
     
     function validateForm(data) {
