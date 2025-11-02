@@ -910,18 +910,6 @@ body {
     transform: scale(1.05);
 }
 
-.blog-category {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    padding: 0.6rem 1.2rem;
-    background: var(--gradient-primary);
-    color: white;
-    border-radius: var(--radius-sm);
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
 .blog-content {
     padding: 2rem;
 }
