@@ -779,6 +779,186 @@ body {
     border-color: var(--primary-color);
 }
 
+.skill-tags .skill-icon {
+    position: relative;
+    --skill-color: var(--primary-color);
+    --skill-bg: rgba(99, 102, 241, 0.12);
+    width: 4.8rem;
+    height: 4.8rem;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+    cursor: default;
+}
+
+.skill-tags .skill-icon:hover,
+.skill-tags .skill-icon:focus-visible {
+    background: var(--skill-bg);
+    border-color: var(--skill-color);
+    color: var(--skill-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--skill-color) 18%, transparent);
+}
+
+.skill-tags .skill-icon:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.skill-tags .skill-icon[aria-label="Python"] {
+    --skill-color: #3776ab;
+    --skill-bg: rgba(55, 118, 171, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="Java"] {
+    --skill-color: #ed8b00;
+    --skill-bg: rgba(237, 139, 0, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="JavaScript"] {
+    --skill-color: #f7df1e;
+    --skill-bg: rgba(247, 223, 30, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="PHP"] {
+    --skill-color: #777bb4;
+    --skill-bg: rgba(119, 123, 180, 0.16);
+}
+
+.skill-tags .skill-icon[aria-label="C#"] {
+    --skill-color: #68217a;
+    --skill-bg: rgba(104, 33, 122, 0.18);
+}
+
+.skill-tags .skill-icon[aria-label="React.js"] {
+    --skill-color: #61dafb;
+    --skill-bg: rgba(97, 218, 251, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="Next.js"] {
+    --skill-color: #000000;
+    --skill-bg: rgba(255, 255, 255, 0.92);
+}
+
+.skill-tags .skill-icon[aria-label="Node.js"] {
+    --skill-color: #339933;
+    --skill-bg: rgba(51, 153, 51, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="Laravel"] {
+    --skill-color: #ff2d20;
+    --skill-bg: rgba(255, 45, 32, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="Django"] {
+    --skill-color: #44b78b;
+    --skill-bg: rgba(68, 183, 139, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="MySQL"] {
+    --skill-color: #4479a1;
+    --skill-bg: rgba(68, 121, 161, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="MongoDB"] {
+    --skill-color: #47a248;
+    --skill-bg: rgba(71, 162, 72, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="PyTorch"] {
+    --skill-color: #ee4c2c;
+    --skill-bg: rgba(238, 76, 44, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="OpenAI API"] {
+    --skill-color: #10a37f;
+    --skill-bg: rgba(16, 163, 127, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="Agentic Workflows"] {
+    --skill-color: var(--secondary-color);
+    --skill-bg: rgba(139, 92, 246, 0.16);
+}
+
+.skill-tags .skill-icon[aria-label="Prompt Engineering"] {
+    --skill-color: var(--accent-color);
+    --skill-bg: rgba(6, 182, 212, 0.16);
+}
+
+.skill-tags .skill-icon[aria-label="Docker"] {
+    --skill-color: #2496ed;
+    --skill-bg: rgba(36, 150, 237, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="AWS EC2"] {
+    --skill-color: #ff9900;
+    --skill-bg: rgba(255, 153, 0, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="Linux"] {
+    --skill-color: #fcc624;
+    --skill-bg: rgba(252, 198, 36, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="Git"] {
+    --skill-color: #f05032;
+    --skill-bg: rgba(240, 80, 50, 0.14);
+}
+
+.skill-tags .skill-icon[aria-label="GitHub"] {
+    --skill-color: #181717;
+    --skill-bg: rgba(255, 255, 255, 0.92);
+}
+
+.skill-tags .skill-icon[aria-label="Figma"] {
+    --skill-color: #f24e1e;
+    --skill-bg: rgba(242, 78, 30, 0.14);
+}
+
+.skill-tags .skill-icon::before,
+.skill-tags .skill-icon::after {
+    position: absolute;
+    left: 50%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+    z-index: 20;
+}
+
+.skill-tags .skill-icon::before {
+    content: attr(data-tooltip);
+    bottom: calc(100% + 1rem);
+    transform: translateX(-50%) translateY(6px);
+    padding: 0.7rem 1rem;
+    background: var(--text-color);
+    color: var(--bg-color);
+    border-radius: var(--radius-sm);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow: var(--shadow-lg);
+}
+
+.skill-tags .skill-icon::after {
+    content: "";
+    bottom: calc(100% + 0.4rem);
+    transform: translateX(-50%) translateY(6px);
+    border: 6px solid transparent;
+    border-top-color: var(--text-color);
+}
+
+.skill-tags .skill-icon:hover::before,
+.skill-tags .skill-icon:hover::after,
+.skill-tags .skill-icon:focus-visible::before,
+.skill-tags .skill-icon:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
 .education-item {
     display: flex;
     gap: 2rem;
