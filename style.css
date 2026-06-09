@@ -61,7 +61,7 @@ body {
     --radius-lg: 16px;
     --radius-xl: 24px;
     
-    --container-width: 120rem;
+    --container-width: 140rem;
     --section-padding: 8rem 0;
 }
 
@@ -399,6 +399,7 @@ body {
 
 .hero-container {
     max-width: var(--container-width);
+    width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
@@ -446,7 +447,7 @@ body {
     font-size: 1.8rem;
     color: var(--text-secondary);
     line-height: 1.7;
-    max-width: 50rem;
+    max-width: 62rem;
     margin-bottom: 2rem;
 }
 
